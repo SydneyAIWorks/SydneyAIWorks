@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="Harbor_Bridge_white.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malcolm Thomson - IT Operations and Service Delivery | Sydney AI Works</title>
+    <meta name="description" content="20+ years in IT operations and service delivery across Australia and the UK. Head of IT APAC at John Laing Group for nine years. Now consulting through Sydney AI Works on AI governance, infrastructure and service delivery.">
+    <meta property="og:title" content="Malcolm Thomson - IT Operations and Service Delivery">
+    <meta property="og:description" content="20+ years in IT operations and service delivery. Head of IT APAC at John Laing Group. Consulting through Sydney AI Works on AI governance, infrastructure and service delivery in Sydney.">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://sydneyaiworks.com/about.html">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sydneyaiworks.com/about.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f4f4f4; }
+
+        /* Header */
+        #header {
+            position: relative;
+            color: white;
+            padding: 80px 0 40px;
+            text-align: center;
+            overflow: hidden;
+        }
+        #header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(135deg, rgba(38,51,85,0.36), rgba(9,14,22,0.28)), url('sydney background1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: overlay;
+            z-index: 0;
+            pointer-events: none;
+            filter: brightness(0.4);
+        }
+        #header .container { position: relative; z-index: 1; }
+        .header-logo { margin-bottom: 16px; }
+        .header-logo img { height: 60px; width: auto; }
+        #header h1 { font-size: 2.8rem; margin-bottom: 12px; font-weight: 600; letter-spacing: -0.5px; text-shadow: 0 3px 14px rgba(0,0,0,0.45); }
+        #header .subtitle { font-size: 1.2rem; opacity: 0.95; margin-bottom: 10px; font-weight: 300; color: #bfefff; }
+        #header .availability { display: inline-block; margin-top: 18px; padding: 8px 20px; background: rgba(49,130,206,0.25); border: 1px solid rgba(49,130,206,0.5); border-radius: 4px; font-size: 0.95rem; color: rgba(255,255,255,0.92); }
+
+        /* Nav */
+        .nav-links { margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .nav-links a { color: white; text-decoration: none; padding: 8px 18px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; transition: all 0.3s; font-size: 0.9rem; }
+        .nav-links a:hover { background: rgba(255,255,255,0.1); border-color: #38b2ac; }
+
+        /* Container */
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        /* Main card */
+        #main { background: rgba(255,255,255,0.97); margin: 30px auto 0; max-width: 900px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); overflow: hidden; padding: 0 0 60px; }
+
+        /* Sections */
+        .section { padding: 48px 48px 0; }
+        .section-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #38b2ac; margin-bottom: 10px; }
+        .section h2 { font-size: 1.6rem; color: #1e293b; margin-bottom: 20px; font-weight: 600; }
+        .section p { color: #4a5568; line-height: 1.75; margin-bottom: 14px; font-size: 1rem; }
+
+        /* Divider */
+        .divider { height: 1px; background: #e5e7eb; margin: 0 48px; }
+
+        /* Metrics strip */
+        .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0; background: #f8fafc; border-top: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; margin-top: 32px; }
+        .metric { padding: 24px 20px; text-align: center; border-right: 1px solid #e5e7eb; }
+        .metric:last-child { border-right: none; }
+        .metric .number { font-size: 1.8rem; font-weight: 700; color: #3182ce; line-height: 1.1; }
+        .metric .label { font-size: 0.78rem; color: #64748b; margin-top: 4px; line-height: 1.3; }
+
+        /* Timeline */
+        .timeline { padding: 0 48px; }
+        .timeline-item { padding: 32px 0; border-bottom: 1px solid #e5e7eb; }
+        .timeline-item:last-child { border-bottom: none; }
+        .timeline-dates { font-size: 0.82rem; color: #38b2ac; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+        .timeline-title { font-size: 1.15rem; font-weight: 600; color: #1e293b; margin-bottom: 4px; }
+        .timeline-org { font-size: 0.95rem; color: #3182ce; margin-bottom: 12px; font-weight: 500; }
+        .timeline-body { color: #4a5568; line-height: 1.75; font-size: 0.97rem; }
+        .timeline-body ul { margin: 10px 0 0 18px; }
+        .timeline-body li { margin-bottom: 6px; }
+
+        /* Proof cards */
+        .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; padding: 0 48px; margin-top: 0; }
+        .proof-card { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; }
+        .proof-card .tag { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #38b2ac; margin-bottom: 8px; }
+        .proof-card h3 { font-size: 1.05rem; font-weight: 600; color: #1e293b; margin-bottom: 10px; }
+        .proof-card p { font-size: 0.9rem; color: #64748b; line-height: 1.65; }
+        .proof-card a { color: #3182ce; text-decoration: none; font-size: 0.88rem; font-weight: 600; display: inline-block; margin-top: 10px; }
+        .proof-card a:hover { color: #38b2ac; }
+
+        /* Certifications */
+        .cert-list { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 48px; margin-top: 0; }
+        .cert { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 4px; padding: 8px 16px; font-size: 0.88rem; color: #1e293b; font-weight: 500; }
+
+        /* Contact */
+        .contact-section { padding: 40px 48px 0; text-align: center; }
+        .contact-section p { color: #64748b; margin-bottom: 20px; }
+        .linkedin-btn { display: inline-block; background: #0a66c2; color: white; text-decoration: none; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; transition: background 0.2s; }
+        .linkedin-btn:hover { background: #004182; }
+
+        /* Footer */
+        #footer { text-align: center; padding: 28px 20px; color: #94a3b8; font-size: 0.82rem; margin-top: 30px; }
+        #footer a { color: #3182ce; text-decoration: none; }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            #header h1 { font-size: 2rem; }
+            .section, .timeline, .contact-section { padding-left: 24px; padding-right: 24px; }
+            .proof-grid, .cert-list { padding-left: 24px; padding-right: 24px; }
+            .divider { margin: 0 24px; }
+            .metrics { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <div class="container">
+        <div class="header-logo">
+            <a href="/"><img src="Harbor_Bridge_white.png" alt="Sydney AI Works"></a>
+        </div>
+        <h1>Malcolm Thomson</h1>
+        <p class="subtitle">Senior IT Leadership | Service Delivery | MSP Management | Sydney, NSW</p>
+        <div class="availability">Open to Head of IT, IT Operations Manager and Service Delivery Manager roles in Sydney</div>
+        <nav class="nav-links" aria-label="Site navigation">
+            <a href="/">Home</a>
+            <a href="/#services">Services</a>
+            <a href="/#contact">Contact</a>
+        </nav>
+    </div>
+</div>
+
+<div id="main">
+
+    <div class="section">
+        <div class="section-label">Principal Consultant</div>
+        <h2>About</h2>
+        <p>
+            For nine years I ran IT operations across John Laing Group's entire Australian portfolio as Head of IT APAC - sole IT owner across 10+ sites, accountable for infrastructure, service delivery, MSP performance, vendor contracts and security. No team above me in-region. Everything landed with me.
+        </p>
+        <p>
+            Before that, 14 years in IT operations and managed services across financial services and technology sectors in the UK. I have managed MSPs from both sides: as the client holding them to account, and as the operations lead designing the service model they deliver against.
+        </p>
+        <p>
+            I now consult through Sydney AI Works on IT governance, service delivery and infrastructure, while building in the AI space. ReportingMSP is a live SaaS product I designed, built and shipped solo - an AI-powered client reporting tool purpose-built for managed service providers.
+        </p>
+        <p>
+            I hold ITIL4 Foundation, PRINCE2 and AWS AI Practitioner, and am currently studying toward ISO 42001 Lead Implementer.
+        </p>
+    </div>
+
+    <div class="metrics">
+        <div class="metric">
+            <div class="number">90%</div>
+            <div class="label">SLA attainment</div>
+        </div>
+        <div class="metric">
+            <div class="number">90%</div>
+            <div class="label">CSAT score</div>
+        </div>
+        <div class="metric">
+            <div class="number">50%</div>
+            <div class="label">Faster resolution</div>
+        </div>
+        <div class="metric">
+            <div class="number">15+</div>
+            <div class="label">Office setups delivered</div>
+        </div>
+        <div class="metric">
+            <div class="number">20+</div>
+            <div class="label">VC rollouts</div>
+        </div>
+    </div>
+
+    <div class="section" style="padding-top: 48px;">
+        <div class="section-label">Career</div>
+        <h2>Experience</h2>
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <div class="timeline-dates">Aug 2015 - Nov 2024</div>
+            <div class="timeline-title">Head of IT APAC</div>
+            <div class="timeline-org">John Laing Group</div>
+            <div class="timeline-body">
+                <p>Sole IT owner for John Laing's entire Australian portfolio. Managed external and offshore MSPs, held full accountability for infrastructure, end user computing, vendor contracts, security tooling and IT service delivery across 10+ sites with no regional IT management layer above me.</p>
+                <ul>
+                    <li>90% SLA attainment and 90% CSAT sustained across the region</li>
+                    <li>50% reduction in average resolution time through process redesign and tooling</li>
+                    <li>100% security tooling adoption across all sites</li>
+                    <li>15+ office setups and 20+ video conferencing rollouts delivered end to end</li>
+                    <li>$100Ks saved through vendor renegotiation and procurement strategy</li>
+                    <li>Full MSP performance management: contract oversight, SLA enforcement and escalation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dates">2001 - 2015</div>
+            <div class="timeline-title">IT Operations and Service Delivery</div>
+            <div class="timeline-org">Various organisations - UK</div>
+            <div class="timeline-body">
+                <p>14 years in IT operations and managed services across financial services and technology sectors in the UK. Roles spanned service desk leadership, infrastructure delivery, MSP management and vendor coordination. Built the operational discipline and service delivery frameworks I later applied at scale in the APAC role.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <div class="section-label">Current Work</div>
+        <h2>What I build and deliver</h2>
+        <p>Three examples of recent work, covering product development, methodology delivery and infrastructure projects.</p>
+    </div>
+
+    <div class="proof-grid">
+
+        <div class="proof-card">
+            <div class="tag">SaaS Product</div>
+            <h3>ReportingMSP</h3>
+            <p>AI-powered client reporting tool for managed service providers. Generates professional PDF reports from monthly metrics in under five minutes. Four audience formats from one data entry. Built and shipped solo on Next.js, Supabase and the Claude API.</p>
+            <a href="https://reportingmsp.com" target="_blank" rel="noopener">Try the live demo at reportingmsp.com</a>
+        </div>
+
+        <div class="proof-card">
+            <div class="tag">Methodology</div>
+            <h3>AI Search and Agent Readiness</h3>
+            <p>A six-layer audit method for assessing how findable and actionable a business is to AI systems and agents. Produces a scored readiness assessment, a build sequence and a measurement plan. Delivered as a repeatable consulting service through Sydney AI Works.</p>
+        </div>
+
+        <div class="proof-card">
+            <div class="tag">Free Tool</div>
+            <h3>ISO 42001 Readiness Assessment</h3>
+            <p>A self-assessment tool that checks AI governance maturity against ISO/IEC 42001 and Australia's AI6 practices. Takes about 10 minutes. Produces a scored domain report, priority gaps and an indicative path to certification. No signup required.</p>
+            <a href="/iso42001-readiness-assessment.html">Take the free assessment</a>
+        </div>
+
+        <div class="proof-card">
+            <div class="tag">Infrastructure Project</div>
+            <h3>Network Infrastructure Delivery</h3>
+            <p>Full network infrastructure project for a hospitality and travel operator, delivered through Sydney AI Works. Included a statement of work, a detailed cost analysis across vendor options in the AU$35K-62K range, and ISO 27001 compliance framing.</p>
+        </div>
+
+    </div>
+
+    <div class="section" style="padding-top: 48px;">
+        <div class="section-label">Qualifications</div>
+        <h2>Certifications</h2>
+    </div>
+
+    <div class="cert-list">
+        <span class="cert">ITIL4 Foundation</span>
+        <span class="cert">PRINCE2</span>
+        <span class="cert">AWS AI Practitioner</span>
+        <span class="cert">ISO 42001 Lead Implementer (studying)</span>
+    </div>
+
+    <div class="contact-section">
+        <div class="section-label">Contact</div>
+        <h2 style="font-size: 1.4rem; color: #1e293b; margin-bottom: 12px;">Connect on LinkedIn</h2>
+        <p>For roles, consulting enquiries or project discussions.</p>
+        <a href="https://www.linkedin.com/in/malcolm-d-thomson/" target="_blank" rel="noopener" class="linkedin-btn">View LinkedIn Profile</a>
+    </div>
+
+</div>
+
+<div id="footer">
+    <a href="/">Sydney AI Works</a> - Sydney, NSW, Australia
+</div>
+
+</body>
+</html>

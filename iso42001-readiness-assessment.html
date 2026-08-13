@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISO 42001 Readiness Assessment | Sydney AI Works</title>
+<meta name="description" content="Free self-assessment tool. Check your organisation's AI governance maturity against ISO/IEC 42001 and Australia's AI6 practices in about 10 minutes.">
+<meta property="og:title" content="ISO 42001 Readiness Assessment - Sydney AI Works">
+<meta property="og:description" content="Find out where your AI governance stands and what it takes to reach certification. Free, no signup required.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sydneyaiworks.com/iso42001-readiness-assessment.html">
+<link rel="canonical" href="https://sydneyaiworks.com/iso42001-readiness-assessment.html">
+<link rel="icon" href="Harbor_Bridge_white.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1B2D;
+    --ink-soft:#1C2A3F;
+    --paper:#EEF1F4;
+    --surface:#FFFFFF;
+    --line:#D7DEE6;
+    --line-soft:#E7ECF1;
+    --text:#16202E;
+    --muted:#5C6B7C;
+    --accent:#0E7C6B;
+    --accent-bright:#14B8A6;
+    /* maturity band scale */
+    --band-foundational:#B4541E;
+    --band-developing:#C28A12;
+    --band-established:#3F7C8C;
+    --band-ready:#2C8A63;
+    --focus:#14B8A6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--text);
+    line-height:1.55;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px}
+
+  /* ---------- header ---------- */
+  header{background:var(--ink);color:#fff;border-bottom:3px solid var(--accent)}
+  .head-inner{max-width:920px;margin:0 auto;padding:22px 20px 26px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:.02em;font-size:.82rem;text-transform:uppercase;color:var(--accent-bright)}
+  .brand .dot{width:9px;height:9px;border-radius:2px;background:var(--accent-bright);transform:rotate(45deg)}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.5rem,4.5vw,2.15rem);line-height:1.08;margin-top:14px;letter-spacing:-.01em}
+  .sub{color:#A9B6C4;max-width:60ch;margin-top:10px;font-size:.98rem}
+  .progress{margin-top:20px;height:4px;background:rgba(255,255,255,.12);border-radius:99px;overflow:hidden}
+  .progress > i{display:block;height:100%;width:0;background:var(--accent-bright);border-radius:99px;transition:width .45s cubic-bezier(.2,.7,.2,1)}
+  .step-tag{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:#8595A6;margin-top:10px;letter-spacing:.04em}
+
+  main{padding:34px 0 60px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:30px 30px 32px;box-shadow:0 1px 0 rgba(15,27,45,.03),0 18px 40px -34px rgba(15,27,45,.4)}
+
+  .eyebrow{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+  .tag{font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:500;letter-spacing:.02em;color:var(--accent);background:rgba(14,124,107,.08);border:1px solid rgba(14,124,107,.2);padding:3px 8px;border-radius:5px}
+  .tag.ai6{color:#7a5a12;background:rgba(194,138,18,.09);border-color:rgba(194,138,18,.25)}
+
+  h2{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.5rem;letter-spacing:-.01em;line-height:1.15}
+  .lead{color:var(--muted);margin-top:10px;max-width:64ch}
+
+  /* ---------- intro / profile ---------- */
+  .field{margin-top:22px}
+  .field > label{display:block;font-weight:600;font-size:.92rem;margin-bottom:9px}
+  .field .hint{font-weight:400;color:var(--muted);font-size:.84rem}
+  input[type=text], select{
+    width:100%;font:inherit;font-size:.96rem;color:var(--text);
+    padding:11px 13px;border:1px solid var(--line);border-radius:9px;background:#fff;
+  }
+  input[type=text]:focus, select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(20,184,166,.16)}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{font:inherit;font-size:.9rem;padding:9px 14px;border:1px solid var(--line);border-radius:99px;background:#fff;color:var(--text);cursor:pointer;transition:.15s}
+  .chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+  .seg{display:flex;flex-wrap:wrap;gap:8px}
+  .seg button{font:inherit;font-size:.9rem;padding:9px 15px;border:1px solid var(--line);border-radius:9px;background:#fff;cursor:pointer;transition:.15s}
+  .seg button[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .seg button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+  /* ---------- assessment statements ---------- */
+  .statement{padding:20px 0;border-top:1px solid var(--line-soft)}
+  .statement:first-of-type{border-top:none}
+  .statement p.q{font-weight:500;font-size:1.02rem;margin-bottom:13px}
+  .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+  .scale button{
+    font:inherit;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:9px;
+    padding:10px 6px 9px;text-align:center;transition:.13s;min-height:62px;display:flex;flex-direction:column;justify-content:center;gap:3px;
+  }
+  .scale button .lvl{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;color:var(--muted)}
+  .scale button .lbl{font-size:.7rem;line-height:1.2;color:var(--muted)}
+  .scale button:hover{border-color:var(--accent)}
+  .scale button[aria-pressed=true]{background:var(--ink);border-color:var(--ink)}
+  .scale button[aria-pressed=true] .lvl,.scale button[aria-pressed=true] .lbl{color:#fff}
+  .scale button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+  /* ---------- nav ---------- */
+  .nav{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:28px}
+  .btn{font:inherit;font-weight:600;font-size:.95rem;padding:12px 22px;border-radius:10px;border:1px solid transparent;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:#0c6c5d}
+  .btn-primary:disabled{background:#9fc4bd;cursor:not-allowed}
+  .btn-ghost{background:transparent;color:var(--muted);border-color:var(--line)}
+  .btn-ghost:hover{color:var(--text);border-color:var(--muted)}
+  .btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+  .nav .spacer{flex:1}
+
+  /* ---------- results ---------- */
+  .gauge-wrap{display:flex;flex-direction:column;align-items:center;text-align:center;padding:6px 0 4px}
+  .gauge{position:relative;width:300px;max-width:100%}
+  .gauge svg{display:block;width:100%;height:auto}
+  .gauge .readout{position:absolute;left:0;right:0;bottom:6px;text-align:center}
+  .gauge .score{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:3.1rem;line-height:1}
+  .gauge .score span{font-size:1.3rem;font-weight:500;color:var(--muted)}
+  .band-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.2rem;margin-top:4px}
+  .timeline{margin-top:6px;color:var(--muted);font-size:.95rem}
+  .timeline b{color:var(--text);font-weight:600}
+
+  .scope{margin-top:24px;background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:16px 18px;font-size:.93rem}
+  .scope .scope-h{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+
+  .section-h{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.18rem;margin:34px 0 4px}
+  .section-d{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+
+  .matrix{display:flex;flex-direction:column;gap:14px}
+  .row{display:grid;grid-template-columns:1fr;gap:7px}
+  .row .row-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .row .dname{font-weight:600;font-size:.96rem}
+  .row .dcode{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);margin-left:8px;font-weight:400}
+  .row .dpct{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:.9rem;white-space:nowrap}
+  .bar{height:9px;border-radius:99px;background:var(--line-soft);overflow:hidden}
+  .bar > i{display:block;height:100%;border-radius:99px;width:0;transition:width .8s cubic-bezier(.2,.7,.2,1)}
+  .row .dlevel{font-size:.78rem;color:var(--muted)}
+
+  .gaps{display:flex;flex-direction:column;gap:12px}
+  .gap{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-left-width:4px;border-radius:10px;padding:14px 16px}
+  .gap .gn{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:var(--muted);min-width:22px}
+  .gap .gt{font-weight:600;font-size:.97rem}
+  .gap .gd{color:var(--muted);font-size:.9rem;margin-top:3px}
+
+  .cta{margin-top:34px;background:var(--ink);color:#fff;border-radius:14px;padding:28px 28px 30px}
+  .cta h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.3rem}
+  .cta p{color:#AEBBC8;margin-top:10px;max-width:60ch;font-size:.96rem}
+  .cta .contact{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.92rem}
+  .cta .contact a{color:var(--accent-bright);text-decoration:none;font-weight:500}
+  .cta .contact a:hover{text-decoration:underline}
+  .cta .contact .ck{font-family:'IBM Plex Mono',monospace;color:#7a8a9a;font-size:.74rem;display:block;margin-bottom:1px}
+
+  .result-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+  footer{border-top:1px solid var(--line);margin-top:14px;padding:22px 0 40px}
+  .disc{color:var(--muted);font-size:.78rem;max-width:80ch;line-height:1.6}
+
+  .hidden{display:none !important}
+
+  @media (max-width:560px){
+    .card{padding:22px 18px 24px}
+    .scale{grid-template-columns:repeat(5,1fr);gap:5px}
+    .scale button{padding:8px 3px;min-height:66px}
+    .scale button .lbl{display:none}
+    .gauge{width:260px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important}
+  }
+
+  /* ---------- print ---------- */
+  @media print{
+    body{background:#fff}
+    header{background:#fff;color:#000;border-bottom:2px solid #000}
+    .brand,.head-inner .progress,.step-tag{color:#000}
+    h1,.sub{color:#000}
+    .nav,.result-actions,.intro-only{display:none !important}
+    .card{box-shadow:none;border:none;padding:0}
+    .cta{background:#fff;color:#000;border:1px solid #000}
+    .cta p,.cta .contact .ck{color:#333}
+    .cta .contact a{color:#000}
+    .gap{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="head-inner">
+    <div class="brand"><a href="/" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:10px"><span class="dot"></span> Sydney AI Works</a> &middot; AI Governance Advisory</div>
+    <h1 id="hTitle">ISO 42001 Readiness Assessment</h1>
+    <p class="sub" id="hSub">A structured maturity check against ISO/IEC 42001 and Australia's Guidance for AI Adoption. Find out where your AI governance stands and what it takes to reach certification.</p>
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+    <div class="step-tag" id="stepTag">Start</div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="card" id="card"><!-- rendered by JS --></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">Indicative readiness assessment only. It is a self-reported maturity check, not a certification, audit, or legal advice, and does not guarantee a certification outcome. Domains are equally weighted. The structure follows ISO/IEC 42001:2023 (clauses 4 to 10 and the Annex A control objectives) and the National AI Centre's Guidance for AI Adoption (the six essential practices, AI6). Prepared by Sydney AI Works.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // ----- maturity scale -----
+  var SCALE = [
+    {v:0, lvl:"0", lbl:"Not in place"},
+    {v:1, lvl:"1", lbl:"Ad hoc"},
+    {v:2, lvl:"2", lbl:"Defined"},
+    {v:3, lvl:"3", lbl:"Managed"},
+    {v:4, lvl:"4", lbl:"Embedded"}
+  ];
+
+  // ----- domains -----
+  var DOMAINS = [
+    {
+      name:"Accountability & AI policy",
+      iso:["ISO 42001 Cl.5","A.2","A.3"], ai6:"AI6 1 \u00b7 Accountability",
+      fix:"Name an accountable executive and adopt a leadership-approved AI policy. This unblocks almost every other control.",
+      q:[
+        "A named executive is accountable for AI across the organisation.",
+        "A documented AI policy exists, is approved by leadership, and is reviewed.",
+        "Roles for developing, approving and monitoring AI systems are clearly assigned."
+      ]
+    },
+    {
+      name:"AI inventory & resources",
+      iso:["A.4","ISO 42001 Cl.7"], ai6:"AI6 1 \u00b7 Accountability",
+      fix:"Stand up an AI system register capturing each system with its data, tooling, compute and owners.",
+      q:[
+        "You maintain a current register of AI systems in use or development.",
+        "Data, tooling, compute and people for each AI system are documented."
+      ]
+    },
+    {
+      name:"Risk & impact assessment",
+      iso:["ISO 42001 Cl.6.1.3","Cl.6.1.4","A.5"], ai6:"AI6 2\u20133 \u00b7 Impacts & risk",
+      fix:"Establish a repeatable AI risk and impact assessment tied to your existing risk register.",
+      q:[
+        "AI-specific risks are identified and treated through a documented process.",
+        "Impact assessments consider effects on individuals, groups and society.",
+        "Risks are reassessed as systems and use cases change."
+      ]
+    },
+    {
+      name:"AI lifecycle & data governance",
+      iso:["A.6","A.7","ISO 42001 Cl.8"], ai6:"AI6 5 \u00b7 Test & monitor",
+      fix:"Define a documented AI development lifecycle and set data quality and provenance requirements.",
+      q:[
+        "AI systems follow a defined, documented development and deployment lifecycle.",
+        "Data quality, provenance and preparation requirements are defined and recorded."
+      ]
+    },
+    {
+      name:"Transparency & stakeholder information",
+      iso:["A.8"], ai6:"AI6 4 \u00b7 Share information",
+      fix:"Define when and how you disclose AI involvement to users and affected parties.",
+      q:[
+        "Users and affected people are informed when AI is material to a decision.",
+        "Purpose, limitations and contact points for AI systems are available to stakeholders."
+      ]
+    },
+    {
+      name:"Responsible use & human oversight",
+      iso:["A.9"], ai6:"AI6 6 \u00b7 Human control",
+      fix:"Set acceptable-use boundaries and define human oversight points for decisions that affect people.",
+      q:[
+        "Meaningful human oversight exists for AI-influenced decisions affecting people.",
+        "Acceptable-use boundaries for AI systems are defined and communicated."
+      ]
+    },
+    {
+      name:"Testing, monitoring & improvement",
+      iso:["ISO 42001 Cl.9","Cl.10","A.6"], ai6:"AI6 5 \u00b7 Test & monitor",
+      fix:"Introduce pre-deployment acceptance testing, post-deployment monitoring and incident logging.",
+      q:[
+        "AI systems are tested against defined acceptance criteria before deployment.",
+        "Post-deployment performance and behaviour are monitored on risk-based metrics.",
+        "Incidents and near-misses are logged, reviewed and feed improvement."
+      ]
+    },
+    {
+      name:"Third-party & supply chain",
+      iso:["A.10"], ai6:"AI6 \u00b7 Supply chain",
+      fix:"Add AI-specific due diligence and contractual clauses covering AI risk, evidence and data rights.",
+      q:[
+        "AI vendors are assessed for responsible-AI alignment and data rights.",
+        "Contracts allocate AI risk, testing evidence and customer obligations."
+      ]
+    }
+  ];
+
+  var SECTORS = ["Financial services","Technology / SaaS","Healthcare","Government / public sector","Professional services","Other"];
+  var ROLES = ["Develops AI","Provides AI products","Uses AI internally"];
+  var COUNTS = ["1\u20132","3\u201310","11\u201325","25+"];
+  var ISO27 = ["Yes","In progress","No"];
+
+  // ----- state -----
+  var state = {
+    step:0, // 0 intro, 1..N domains, N+1 results
+    profile:{ org:"", sector:"", roles:[], count:"", iso27:"" },
+    answers:DOMAINS.map(function(d){ return d.q.map(function(){ return null; }); })
+  };
+  var TOTAL_STEPS = DOMAINS.length + 1; // domains + results (intro is step 0)
+
+  var card = document.getElementById('card');
+  var bar = document.getElementById('bar');
+  var stepTag = document.getElementById('stepTag');
+
+  function bandFor(pct){
+    if(pct < 31) return {key:"Foundational", color:"var(--band-foundational)", time:"9 to 12+ months", note:"a significant build of the management system"};
+    if(pct < 56) return {key:"Developing", color:"var(--band-developing)", time:"6 to 9 months", note:"closing core governance gaps"};
+    if(pct < 79) return {key:"Established", color:"var(--band-established)", time:"3 to 6 months", note:"targeted remediation and evidence"};
+    return {key:"Audit-ready", color:"var(--band-ready)", time:"1 to 3 months", note:"final preparation for Stage 1"};
+  }
+  function levelLabel(pct){
+    if(pct < 31) return "Not in place / ad hoc";
+    if(pct < 56) return "Defined in parts";
+    if(pct < 79) return "Largely managed";
+    return "Embedded";
+  }
+
+  function updateChrome(){
+    var pct = Math.round((state.step / TOTAL_STEPS) * 100);
+    bar.style.width = pct + "%";
+    if(state.step === 0){ stepTag.textContent = "Organisation profile"; }
+    else if(state.step <= DOMAINS.length){ stepTag.textContent = "Domain " + state.step + " of " + DOMAINS.length; }
+    else { stepTag.textContent = "Your readiness report"; }
+  }
+
+  function el(html){ var t=document.createElement('template'); t.innerHTML=html.trim(); return t.content.firstChild; }
+
+  // ---------- render intro ----------
+  function renderIntro(){
+    card.innerHTML = "";
+    var c = el('<div></div>');
+    c.appendChild(el('<div class="eyebrow"><span class="tag">ISO/IEC 42001:2023</span><span class="tag ai6">NAIC AI6</span></div>'));
+    c.appendChild(el('<h2>First, a quick profile</h2>'));
+    c.appendChild(el('<p class="lead">This tailors the report to your context. It takes about 10 minutes to complete the full assessment.</p>'));
+
+    // org name
+    var f1 = el('<div class="field"><label for="org">Organisation name</label></div>');
+    var org = el('<input type="text" id="org" autocomplete="organization" placeholder="e.g. Acme Pty Ltd">');
+    org.value = state.profile.org;
+    org.addEventListener('input', function(){ state.profile.org = org.value; });
+    f1.appendChild(org); c.appendChild(f1);
+
+    // sector
+    var f2 = el('<div class="field"><label for="sector">Primary sector</label></div>');
+    var sel = el('<select id="sector"><option value="">Select a sector</option></select>');
+    SECTORS.forEach(function(s){ var o=el('<option></option>'); o.value=s; o.textContent=s; if(state.profile.sector===s)o.selected=true; sel.appendChild(o); });
+    sel.addEventListener('change', function(){ state.profile.sector = sel.value; });
+    f2.appendChild(sel); c.appendChild(f2);
+
+    // roles (multi)
+    var f3 = el('<div class="field"><label>Your role with AI <span class="hint">(select all that apply)</span></label></div>');
+    var chips = el('<div class="chips"></div>');
+    ROLES.forEach(function(r){
+      var pressed = state.profile.roles.indexOf(r) > -1;
+      var b = el('<button type="button" class="chip"></button>');
+      b.textContent = r; b.setAttribute('aria-pressed', pressed?"true":"false");
+      b.addEventListener('click', function(){
+        var i = state.profile.roles.indexOf(r);
+        if(i>-1){ state.profile.roles.splice(i,1); b.setAttribute('aria-pressed','false'); }
+        else { state.profile.roles.push(r); b.setAttribute('aria-pressed','true'); }
+      });
+      chips.appendChild(b);
+    });
+    f3.appendChild(chips); c.appendChild(f3);
+
+    // count
+    var f4 = el('<div class="field"><label>AI systems in scope</label></div>');
+    var seg4 = el('<div class="seg"></div>');
+    COUNTS.forEach(function(n){
+      var b = el('<button type="button"></button>'); b.textContent=n;
+      b.setAttribute('aria-pressed', state.profile.count===n?"true":"false");
+      b.addEventListener('click', function(){
+        state.profile.count=n;
+        seg4.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false');});
+        b.setAttribute('aria-pressed','true');
+      });
+      seg4.appendChild(b);
+    });
+    f4.appendChild(seg4); c.appendChild(f4);
+
+    // iso27
+    var f5 = el('<div class="field"><label>Do you already hold ISO 27001? <span class="hint">(it can cut the build significantly)</span></label></div>');
+    var seg5 = el('<div class="seg"></div>');
+    ISO27.forEach(function(n){
+      var b = el('<button type="button"></button>'); b.textContent=n;
+      b.setAttribute('aria-pressed', state.profile.iso27===n?"true":"false");
+      b.addEventListener('click', function(){
+        state.profile.iso27=n;
+        seg5.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false');});
+        b.setAttribute('aria-pressed','true');
+      });
+      seg5.appendChild(b);
+    });
+    f5.appendChild(seg5); c.appendChild(f5);
+
+    // nav
+    var nav = el('<div class="nav"></div>');
+    nav.appendChild(el('<span class="spacer"></span>'));
+    var next = el('<button class="btn btn-primary">Begin assessment</button>');
+    next.addEventListener('click', function(){ state.step = 1; render(); });
+    nav.appendChild(next);
+    c.appendChild(nav);
+
+    card.appendChild(c);
+  }
+
+  // ---------- render a domain ----------
+  function renderDomain(){
+    var di = state.step - 1;
+    var d = DOMAINS[di];
+    card.innerHTML = "";
+    var c = el('<div></div>');
+
+    var eye = el('<div class="eyebrow"></div>');
+    d.iso.forEach(function(t){ var s=el('<span class="tag"></span>'); s.textContent=t; eye.appendChild(s); });
+    var a = el('<span class="tag ai6"></span>'); a.textContent=d.ai6; eye.appendChild(a);
+    c.appendChild(eye);
+
+    c.appendChild(el('<h2>'+d.name+'</h2>'));
+    c.appendChild(el('<p class="lead">Rate how well each statement describes your organisation today.</p>'));
+
+    d.q.forEach(function(qtext, qi){
+      var st = el('<div class="statement"></div>');
+      var p = el('<p class="q"></p>'); p.textContent=qtext; st.appendChild(p);
+      var scale = el('<div class="scale" role="group"></div>');
+      SCALE.forEach(function(s){
+        var b = el('<button type="button"></button>');
+        b.innerHTML = '<span class="lvl">'+s.lvl+'</span><span class="lbl">'+s.lbl+'</span>';
+        if(state.answers[di][qi] === s.v) b.setAttribute('aria-pressed','true');
+        b.addEventListener('click', function(){
+          state.answers[di][qi] = s.v;
+          scale.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false');});
+          b.setAttribute('aria-pressed','true');
+          syncNext();
+        });
+        scale.appendChild(b);
+      });
+      st.appendChild(scale);
+      c.appendChild(st);
+    });
+
+    var nav = el('<div class="nav"></div>');
+    var back = el('<button class="btn btn-ghost">Back</button>');
+    back.addEventListener('click', function(){ state.step--; render(); });
+    nav.appendChild(back);
+    nav.appendChild(el('<span class="spacer"></span>'));
+    var isLast = state.step === DOMAINS.length;
+    var next = el('<button class="btn btn-primary">'+(isLast?"See my readiness":"Next domain")+'</button>');
+    next.addEventListener('click', function(){ state.step++; render(); });
+    nav.appendChild(next);
+    c.appendChild(nav);
+
+    card.appendChild(c);
+
+    function syncNext(){
+      var done = state.answers[di].every(function(v){ return v !== null; });
+      next.disabled = !done;
+    }
+    syncNext();
+  }
+
+  // ---------- compute results ----------
+  function computeDomainPcts(){
+    return DOMAINS.map(function(d, di){
+      var ans = state.answers[di];
+      var sum = ans.reduce(function(a,b){ return a + (b||0); },0);
+      var max = ans.length * 4;
+      return Math.round((sum / max) * 100);
+    });
+  }
+
+  function scopeLine(){
+    var p = state.profile;
+    var bits = [];
+    if(p.sector) bits.push(p.sector + " organisation");
+    if(p.roles.length) bits.push(p.roles.join(", ").toLowerCase());
+    if(p.count) bits.push(p.count + " AI system" + (p.count==="1\u20132"?"(s)":"s") + " in scope");
+    return bits.length ? bits.join(" \u00b7 ") : "Scope not specified";
+  }
+  function iso27Note(){
+    var v = state.profile.iso27;
+    if(v === "Yes") return "You already hold ISO 27001. Under Annex D you can extend that management system rather than rebuild it, which typically cuts implementation effort by 30 to 40 per cent.";
+    if(v === "In progress") return "Your ISO 27001 work in progress is an advantage. The shared management-system structure means much of that backbone can be extended to cover AI.";
+    if(v === "No") return "Without an existing ISO 27001 system, expect to build the management-system backbone (clauses 4 to 10) as part of the engagement. The control work is then layered on top.";
+    return "";
+  }
+
+  function renderResults(){
+    card.innerHTML = "";
+    var pcts = computeDomainPcts();
+    var overall = Math.round(pcts.reduce(function(a,b){return a+b;},0) / pcts.length);
+    var band = bandFor(overall);
+    var orgName = state.profile.org ? state.profile.org.trim() : "Your organisation";
+
+    document.getElementById('hTitle').textContent = "Readiness Report \u2014 " + orgName;
+    document.getElementById('hSub').textContent = "An indicative view of where AI governance stands against ISO/IEC 42001, and the likely path to certification.";
+
+    var c = el('<div></div>');
+
+    // gauge
+    var gw = el('<div class="gauge-wrap"></div>');
+    var gauge = el('<div class="gauge"></div>');
+    gauge.innerHTML =
+      '<svg viewBox="0 0 300 172" role="img" aria-label="Overall readiness '+overall+' per cent">'+
+        '<path d="M28 158 A122 122 0 0 1 272 158" fill="none" stroke="var(--line-soft)" stroke-width="18" stroke-linecap="round"/>'+
+        '<path id="arc" d="M28 158 A122 122 0 0 1 272 158" fill="none" stroke="'+band.color+'" stroke-width="18" stroke-linecap="round"/>'+
+        '<text x="28" y="170" font-family="IBM Plex Mono, monospace" font-size="11" fill="#7C8A99">0</text>'+
+        '<text x="272" y="170" font-family="IBM Plex Mono, monospace" font-size="11" fill="#7C8A99" text-anchor="end">100</text>'+
+      '</svg>'+
+      '<div class="readout"><div class="score">'+overall+'<span>%</span></div></div>';
+    gw.appendChild(gauge);
+    gw.appendChild(el('<div class="band-name" style="color:'+band.color+'">'+band.key+'</div>'));
+    gw.appendChild(el('<p class="timeline">Indicative path to Stage 1 audit: <b>'+band.time+'</b>, focused on '+band.note+'.</p>'));
+    c.appendChild(gw);
+
+    // scope
+    var scope = el('<div class="scope"></div>');
+    scope.appendChild(el('<div class="scope-h">Assessment scope</div>'));
+    scope.appendChild(el('<div>'+scopeLine()+'</div>'));
+    if(iso27Note()){ var n=el('<div style="margin-top:9px;color:var(--muted)"></div>'); n.textContent=iso27Note(); scope.appendChild(n); }
+    c.appendChild(scope);
+
+    // matrix
+    c.appendChild(el('<h3 class="section-h">Readiness by domain</h3>'));
+    c.appendChild(el('<p class="section-d">Eight domains mapped to ISO 42001 clauses, Annex A control objectives and the AI6 practices.</p>'));
+    var matrix = el('<div class="matrix"></div>');
+    DOMAINS.forEach(function(d, i){
+      var p = pcts[i];
+      var b = bandFor(p);
+      var row = el('<div class="row"></div>');
+      row.appendChild(el('<div class="row-top"><div class="dname">'+d.name+'<span class="dcode">'+d.iso.join(" \u00b7 ")+'</span></div><div class="dpct" style="color:'+b.color+'">'+p+'%</div></div>'));
+      var barEl = el('<div class="bar"><i></i></div>');
+      row.appendChild(barEl);
+      row.appendChild(el('<div class="dlevel">'+levelLabel(p)+'</div>'));
+      matrix.appendChild(row);
+      // animate
+      var fill = barEl.querySelector('i');
+      fill.style.background = b.color;
+      requestAnimationFrame(function(){ setTimeout(function(){ fill.style.width = p + "%"; }, 60*i); });
+    });
+    c.appendChild(matrix);
+
+    // priority gaps (3 lowest)
+    var order = pcts.map(function(p,i){return {i:i,p:p};}).sort(function(a,b){return a.p-b.p;}).slice(0,3);
+    c.appendChild(el('<h3 class="section-h">Priority gaps</h3>'));
+    c.appendChild(el('<p class="section-d">Where to focus first. These domains carry the most readiness risk today.</p>'));
+    var gaps = el('<div class="gaps"></div>');
+    order.forEach(function(o, idx){
+      var d = DOMAINS[o.i];
+      var b = bandFor(o.p);
+      var g = el('<div class="gap" style="border-left-color:'+b.color+'"></div>');
+      g.appendChild(el('<div class="gn">'+(idx+1)+'</div>'));
+      var body = el('<div></div>');
+      body.appendChild(el('<div class="gt">'+d.name+' <span class="dcode" style="color:'+b.color+'">'+o.p+'%</span></div>'));
+      var gd = el('<div class="gd"></div>'); gd.textContent = d.fix; body.appendChild(gd);
+      g.appendChild(body);
+      gaps.appendChild(g);
+    });
+    c.appendChild(gaps);
+
+    // CTA
+    var cta = el('<div class="cta"></div>');
+    cta.appendChild(el('<h3>Turn this into a roadmap</h3>'));
+    var ctaP = el('<p></p>');
+    ctaP.textContent = "A readiness assessment shows the gaps. The next step is a fixed-scope engagement that builds your AI management system, closes these gaps, and gets you audit-ready. Sydney AI Works delivers this end to end, accelerated with AI tooling so it lands faster and at a price built for organisations your size.";
+    cta.appendChild(ctaP);
+    var contact = el('<div class="contact"></div>');
+    contact.appendChild(el('<div><span class="ck">WEB</span><a href="https://sydneyaiworks.com" target="_blank" rel="noopener">sydneyaiworks.com</a></div>'));
+    contact.appendChild(el('<div><span class="ck">LINKEDIN</span><a href="https://www.linkedin.com/in/malcolm-d-thomson/" target="_blank" rel="noopener">linkedin.com/in/malcolm-d-thomson</a></div>'));
+    cta.appendChild(contact);
+    c.appendChild(cta);
+
+    // actions
+    var actions = el('<div class="result-actions"></div>');
+    var printBtn = el('<button class="btn btn-primary">Save / print this report</button>');
+    printBtn.addEventListener('click', function(){ window.print(); });
+    var restart = el('<button class="btn btn-ghost">Start over</button>');
+    restart.addEventListener('click', function(){
+      state.step = 0;
+      state.answers = DOMAINS.map(function(d){ return d.q.map(function(){return null;}); });
+      document.getElementById('hTitle').textContent = "ISO 42001 Readiness Assessment";
+      document.getElementById('hSub').textContent = "A structured maturity check against ISO/IEC 42001 and Australia's Guidance for AI Adoption. Find out where your AI governance stands and what it takes to reach certification.";
+      render();
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+    actions.appendChild(printBtn);
+    actions.appendChild(restart);
+    c.appendChild(actions);
+
+    card.appendChild(c);
+
+    // animate gauge arc
+    var arc = document.getElementById('arc');
+    if(arc){
+      var len = arc.getTotalLength();
+      arc.style.strokeDasharray = len;
+      arc.style.strokeDashoffset = len;
+      requestAnimationFrame(function(){
+        arc.style.transition = "stroke-dashoffset 1s cubic-bezier(.2,.7,.2,1)";
+        setTimeout(function(){ arc.style.strokeDashoffset = len * (1 - overall/100); }, 120);
+      });
+    }
+  }
+
+  function render(){
+    updateChrome();
+    if(state.step === 0) renderIntro();
+    else if(state.step <= DOMAINS.length) renderDomain();
+    else renderResults();
+    if(state.step !== 0) window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
