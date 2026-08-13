@@ -1,23 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
-    <link rel="icon" href="harbor_bridge_white.png" type="image/png">   
+    <link rel="icon" href="Harbor_Bridge_white.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sydney AI Works - AI Innovation & IT Consulting</title>
+    <title>Sydney AI Works - IT Consulting and AI Governance | Sydney, NSW</title>
+    <meta name="description" content="Sydney AI Works delivers IT operations advisory, AI governance and readiness, and infrastructure project delivery in Sydney. 20+ years of enterprise IT leadership. ISO 42001 and service delivery specialists.">
+    <meta property="og:title" content="Sydney AI Works - IT Consulting and AI Governance">
+    <meta property="og:description" content="IT operations advisory, AI governance and infrastructure delivery in Sydney. 20+ years enterprise IT experience. Free ISO 42001 readiness assessment available.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sydneyaiworks.com">
+    <link rel="canonical" href="https://sydneyaiworks.com">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f4f4f4; }
         body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('ScrapperWindow.png'); background-repeat: repeat; opacity: 0.03; z-index: 0; pointer-events: none; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
-        
+
         /* Header */
         #header { position: relative; color: white; padding: 80px 0 30px; text-align: center; overflow: hidden; }
         #header::before {
             content: "";
             position: absolute;
             inset: 0;
-            background-image: linear-gradient(135deg, rgba(38,51,85,0.36), rgba(9,14,22,0.28)), url('sydney background1.jpg');
+            background-image: linear-gradient(135deg, rgba(38,51,85,0.36), rgba(9,14,22,0.28)), url('sydney\ background1.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -25,19 +31,18 @@
             z-index: 0;
             pointer-events: none;
             filter: brightness(0.4);
-            opacity: 1; /* ensure pseudo-element fully visible */
         }
         #header .container { position: relative; z-index: 1; }
         .header-logo { margin-bottom: 0; }
         .header-logo img { height: 70px; width: auto; }
         #header h1 { font-size: 3.5rem; margin-bottom: 15px; font-weight: 600; letter-spacing: -1px; text-shadow: 0 3px 14px rgba(0,0,0,0.45); }
         #header .subtitle { font-size: 1.4rem; opacity: 0.95; margin-bottom: 20px; font-weight: 300; color: #bfefff; }
-        #header .description { font-size: 1.1rem; color: rgba(255,255,255,0.95); opacity: 0.98; margin-bottom: 40px; max-width: 850px; margin-left: auto; margin-right: auto; }
+        #header .description { font-size: 1.1rem; color: rgba(255,255,255,0.95); margin-bottom: 40px; max-width: 750px; margin-left: auto; margin-right: auto; }
         .nav-links { margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
         .nav-links a { color: white; text-decoration: none; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; transition: all 0.3s; }
         .nav-links a:hover { background: rgba(255,255,255,0.1); border-color: #38b2ac; }
 
-        /* Main content */
+        /* Main content grid */
         #main { background: rgba(255,255,255,0.95); margin: 30px auto 0; max-width: 1200px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); overflow: hidden; }
         .posts { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0; }
         .post { border-right: 1px solid #e5e7eb; padding: 40px; transition: background-color 0.3s; }
@@ -54,7 +59,24 @@
         .read-more { color: #3182ce; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
         .read-more:hover { color: #38b2ac; }
 
-        /* Services Section */
+        /* Products section */
+        #products { padding: 60px 0; background: #fff; }
+        #products h2 { text-align: center; margin-bottom: 10px; color: #1e293b; font-size: 2.2rem; }
+        #products .section-subtitle { text-align: center; color: #64748b; font-size: 1.1rem; margin-bottom: 40px; }
+        .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+        .product-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 36px 32px; transition: all 0.3s; position: relative; overflow: hidden; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); border-color: #38b2ac; }
+        .product-card .product-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #38b2ac; background: rgba(56,178,172,0.1); border: 1px solid rgba(56,178,172,0.3); padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; }
+        .product-card h3 { font-size: 1.5rem; font-weight: 600; color: #1e293b; margin-bottom: 14px; }
+        .product-card p { color: #4a5568; line-height: 1.75; margin-bottom: 10px; font-size: 0.97rem; }
+        .product-card .product-detail { font-size: 0.88rem; color: #64748b; margin-bottom: 20px; }
+        .product-card .product-detail strong { color: #1e293b; }
+        .product-link { display: inline-block; background: #1e293b; color: white; text-decoration: none; padding: 11px 22px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; margin-top: 6px; }
+        .product-link:hover { background: #3182ce; }
+        .product-link.secondary { background: transparent; color: #3182ce; border: 1px solid #3182ce; }
+        .product-link.secondary:hover { background: #3182ce; color: white; }
+
+        /* Services section */
         #services { padding: 60px 0; background: linear-gradient(180deg, #f7fafc, #edf2f7); }
         #services h2 { text-align: center; margin-bottom: 15px; color: #1e293b; font-size: 2.2rem; }
         .section-subtitle { text-align: center; color: #64748b; font-size: 1.1rem; margin-bottom: 40px; }
@@ -66,39 +88,9 @@
         .service-card ul { list-style: none; padding: 0; }
         .service-card li { color: #4a5568; font-size: 0.9rem; padding: 6px 0; border-bottom: 1px solid #f1f5f9; }
         .service-card li:last-child { border-bottom: none; }
-        .service-card li::before { content: "→ "; color: #38b2ac; font-weight: bold; }
+        .service-card li::before { content: "- "; color: #38b2ac; font-weight: bold; }
 
-        /* Tutorials Section */
-        #tutorials { padding: 60px 0; background: rgba(255,255,255,0.95); }
-        #tutorials h2 { text-align: center; margin-bottom: 15px; color: #1e293b; font-size: 2.2rem; }
-        .tutorials-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .tutorial-card { background: #f8fafc; border-radius: 10px; padding: 25px 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.06); transition: all 0.3s; border: 1px solid #e2e8f0; text-decoration: none; display: block; }
-        .tutorial-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); border-color: #38b2ac; }
-        .tutorial-card h4 { color: #1e293b; font-size: 1rem; margin-bottom: 8px; }
-        .tutorial-card p { color: #64748b; font-size: 0.85rem; margin-bottom: 10px; }
-        .tutorial-card .link-text { color: #3182ce; font-size: 0.85rem; font-weight: 600; }
-
-        /* News Section */
-        #news { padding: 60px 0; background: linear-gradient(180deg, #edf2f7, #f7fafc); }
-        #news .container { max-width: 1200px; }
-        #news h2 { text-align: center; margin-bottom: 15px; color: #1e293b; font-size: 2.2rem; }
-        .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px; }
-        .news-item { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: all 0.3s; border: 1px solid #e2e8f0; }
-        .news-item:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-color: #38b2ac; }
-        .news-item .news-source { display: inline-block; background: linear-gradient(135deg, #3182ce, #38b2ac); color: white; font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; text-transform: uppercase; }
-        .news-item .news-date { color: #94a3b8; font-size: 0.8rem; margin-bottom: 8px; }
-        .news-item h4 { color: #1e293b; font-size: 1rem; margin-bottom: 10px; line-height: 1.4; }
-        .news-item h4 a { color: inherit; text-decoration: none; }
-        .news-item h4 a:hover { color: #3182ce; }
-        .news-item p { color: #64748b; font-size: 0.9rem; line-height: 1.5; margin-bottom: 12px; }
-        .news-loading { text-align: center; padding: 40px; color: #64748b; grid-column: 1 / -1; }
-        .news-loading .spinner { width: 40px; height: 40px; border: 3px solid #e2e8f0; border-top-color: #3182ce; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 15px; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .news-sources { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; padding-top: 25px; border-top: 1px solid #e2e8f0; }
-        .news-sources a { color: #64748b; text-decoration: none; font-size: 0.9rem; padding: 8px 16px; border: 1px solid #e2e8f0; border-radius: 6px; transition: all 0.3s; }
-        .news-sources a:hover { color: #3182ce; border-color: #3182ce; background: white; }
-
-        /* Contact Section */
+        /* Contact section */
         #contact { padding: 60px 0; background: linear-gradient(135deg, #263355, #090e16); color: white; }
         #contact h2 { text-align: center; margin-bottom: 15px; font-size: 2.2rem; }
         #contact .section-subtitle { color: rgba(255,255,255,0.9); margin-bottom: 40px; }
@@ -107,7 +99,7 @@
         .contact-info p { opacity: 0.9; line-height: 1.8; margin-bottom: 25px; }
         .contact-details { list-style: none; }
         .contact-details li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; opacity: 0.9; }
-        .contact-details svg { width: 20px; height: 20px; fill: #38b2ac; }
+        .contact-details svg { width: 20px; height: 20px; fill: #38b2ac; flex-shrink: 0; }
         .contact-details a { color: white; text-decoration: none; }
         .contact-details a:hover { color: #38b2ac; }
         .contact-form { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 10px; }
@@ -118,7 +110,7 @@
         .contact-form select option { background: #1e293b; color: white; }
         .contact-form textarea { min-height: 100px; resize: vertical; }
         .contact-form button { width: 100%; padding: 14px; background: linear-gradient(135deg, #3182ce, #38b2ac); color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; }
-        .contact-form button:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(56, 178, 172, 0.3); }
+        .contact-form button:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(56,178,172,0.3); }
 
         /* Footer */
         #footer { background: #0f172a; color: white; text-align: center; padding: 40px 0; }
@@ -130,8 +122,7 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .services-grid, .news-grid { grid-template-columns: repeat(2, 1fr); }
-            .tutorials-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
             .posts { grid-template-columns: 1fr; }
@@ -140,12 +131,13 @@
             #header h1 { font-size: 2rem; }
             .nav-links { flex-direction: column; align-items: center; }
             .nav-links a { width: 80%; text-align: center; }
-            .services-grid, .tutorials-grid, .news-grid { grid-template-columns: 1fr; }
+            .services-grid, .products-grid { grid-template-columns: 1fr; }
             .contact-wrapper { grid-template-columns: 1fr; gap: 30px; }
         }
     </style>
 </head>
 <body>
+
     <!-- Header -->
     <div id="header">
         <div class="container">
@@ -153,179 +145,131 @@
                 <img src="Harbor_Bridge_white.png" alt="Sydney AI Works" />
             </div>
             <h1>Sydney AI Works</h1>
-            <p class="subtitle">AI Innovation & IT Consulting</p>
-            <p class="description">Empowering businesses with cutting-edge AI solutions, advanced workflow automation, and expert IT consulting. Transforming 20+ years of enterprise IT leadership into next-generation technology services.</p>
-            <div class="nav-links">
+            <p class="subtitle">IT Consulting and AI Governance | Sydney, NSW</p>
+            <p class="description">20+ years of enterprise IT operations and service delivery. IT governance, infrastructure projects and AI readiness for Australian organisations.</p>
+            <nav class="nav-links" aria-label="Site navigation">
+                <a href="#products">Products and Tools</a>
                 <a href="#services">Services</a>
-                <a href="#main">About</a>
-                <a href="#tutorials">Resources</a>
-                <a href="#news">AI News</a>
+                <a href="about.html">About</a>
                 <a href="#contact">Contact</a>
-            </div>
+            </nav>
         </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- Hero grid -->
     <div id="main">
         <div class="posts">
             <article class="post featured">
-                <div class="post-meta">Featured • Principal Consultant</div>
-                <h3>20+ Years of IT Leadership Meets AI Innovation</h3>
-                <p>After 9 years as Head of IT APAC managing distributed operations across 10+ sites, I'm now channelling decades of enterprise experience into cutting-edge AI automation and IT consulting services.</p>
-                <p>Sydney AI Works delivers infrastructure, operations support, and technology advisory services to organisations seeking to strengthen their IT operations and modernise service delivery.</p>
-                <p>From automated AI implementations to n8n/ServiceNow integrations, combined with proven IT service delivery expertise, I transform complex technical challenges into streamlined solutions that deliver real business value.</p>
-                <a href="#services" class="read-more">Explore Services →</a>
+                <div class="post-meta">Principal Consultant</div>
+                <h3>Enterprise IT leadership with a practical AI capability</h3>
+                <p>For nine years I ran IT operations across 10+ Australian sites as Head of IT APAC at John Laing Group. Sole IT owner, managing external and offshore MSPs, accountable for infrastructure, security, service delivery and vendor contracts.</p>
+                <p>I now consult through Sydney AI Works on IT governance, AI readiness and infrastructure projects. I also build: ReportingMSP is a live SaaS product I shipped solo that automates client reporting for managed service providers.</p>
+                <a href="about.html" class="read-more">About and experience →</a>
             </article>
             <article class="post">
-                <div class="post-meta">Services • AI Automation</div>
-                <h3>Advanced AI Workflows</h3>
-                <p>Agentic AI implementations and AI-driven automation tools including n8n, Make.com, OpenClaw, and Claude Code.</p>
-                <a href="#services" class="read-more">Explore →</a>
+                <div class="post-meta">SaaS Product</div>
+                <h3>ReportingMSP</h3>
+                <p>AI-powered client reporting for MSPs. Professional PDF reports from your monthly metrics in under 5 minutes. No signup needed to try the demo.</p>
+                <a href="https://reportingmsp.com" target="_blank" rel="noopener" class="read-more">Try the demo →</a>
             </article>
             <article class="post">
-                <div class="post-meta">Services • IT Operations</div>
-                <h3>Service Delivery Advisory</h3>
-                <p>MSP performance assessment, service model design, and workflow optimisation for small-to-medium enterprises.</p>
-                <a href="#services" class="read-more">Learn More →</a>
+                <div class="post-meta">Free Tool</div>
+                <h3>ISO 42001 Readiness Assessment</h3>
+                <p>Check your AI governance maturity against ISO/IEC 42001 and Australia's AI6 practices. Self-assessment, scored report, no signup.</p>
+                <a href="iso42001-readiness-assessment.html" class="read-more">Take the assessment →</a>
             </article>
             <article class="post">
-                <div class="post-meta">Resources • Tutorials</div>
-                <h3>AI Tutorial Library</h3>
-                <p>Comprehensive tutorials on ComfyUI, n8n, and AI automation techniques.</p>
-                <a href="#tutorials" class="read-more">View Tutorials →</a>
+                <div class="post-meta">Service</div>
+                <h3>AI Governance and Readiness</h3>
+                <p>Procurement pressure is here now. Enterprise buyers and regulators are moving. I help organisations understand where they stand and what to do next.</p>
+                <a href="#services" class="read-more">View services →</a>
             </article>
             <article class="post">
-                <div class="post-meta">Services • Infrastructure</div>
-                <h3>Project Delivery</h3>
-                <p>End-to-end network infrastructure projects with vendor coordination, procurement, and deployment.</p>
-                <a href="#services" class="read-more">View Services →</a>
+                <div class="post-meta">Advisory</div>
+                <h3>Service Delivery and IT Operations</h3>
+                <p>MSP performance assessment, service model design, ITSM tooling selection and IT environment reviews for organisations that need it done right.</p>
+                <a href="#services" class="read-more">View services →</a>
             </article>
         </div>
     </div>
 
-    <!-- Services Section -->
+    <!-- Products section -->
+    <section id="products">
+        <div class="container">
+            <h2>Products and Tools</h2>
+            <p class="section-subtitle">Built and shipped. Both are live and available now.</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="product-tag">SaaS Product - Live</span>
+                    <h3>ReportingMSP</h3>
+                    <p>MSPs spend 2 to 3 hours a month writing client reports that clients barely read. ReportingMSP generates professional PDF reports from your monthly metrics in under 5 minutes. Four audience formats from one data entry: executive, leadership, technical and client-facing.</p>
+                    <p class="product-detail"><strong>Stack:</strong> Next.js, Supabase, Stripe, Claude API. <strong>Pricing:</strong> US$49 per month, unlimited reports, no per-client fees. Three reports free, no signup required.</p>
+                    <a href="https://reportingmsp.com" target="_blank" rel="noopener" class="product-link">Try the live demo at reportingmsp.com</a>
+                </div>
+                <div class="product-card">
+                    <span class="product-tag">Free Tool</span>
+                    <h3>ISO 42001 Readiness Assessment</h3>
+                    <p>A self-assessment tool that checks AI governance maturity against ISO/IEC 42001 and Australia's AI6 practices. Takes about 10 minutes. Produces a scored domain report with priority gaps and an indicative path to certification. No signup required.</p>
+                    <p class="product-detail"><strong>Covers:</strong> Accountability, AI inventory, risk and impact assessment, data governance, transparency, human oversight, testing and monitoring, and third-party supply chain.</p>
+                    <a href="iso42001-readiness-assessment.html" class="product-link">Take the free assessment</a>
+                    <a href="#contact" class="product-link secondary" style="margin-left: 10px;">Discuss the results</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services section -->
     <section id="services">
         <div class="container">
-            <h2>Professional Services</h2>
-            <p class="section-subtitle">Independent IT consultancy delivering infrastructure, operations support, and technology advisory services</p>
+            <h2>Consulting Services</h2>
+            <p class="section-subtitle">Independent advisory and delivery. No subcontractors on your work.</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <h3>Service Delivery & Operations Advisory</h3>
-                    <p>Strategic IT operations consulting for organisations seeking to optimise their service delivery.</p>
+                    <h3>AI Governance and Readiness</h3>
+                    <p>For organisations facing procurement requirements, incoming regulation or internal AI risk exposure.</p>
+                    <ul>
+                        <li>ISO 42001 readiness assessment</li>
+                        <li>AI management system design</li>
+                        <li>Policy and risk framework development</li>
+                        <li>AI inventory and impact assessment</li>
+                        <li>Australian AI6 alignment</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Service Delivery and IT Operations</h3>
+                    <p>For organisations that need their IT service delivery model reviewed, rebuilt or managed.</p>
                     <ul>
                         <li>MSP performance assessment</li>
                         <li>Service model design</li>
-                        <li>Workflow optimisation</li>
+                        <li>Workflow and process optimisation</li>
                         <li>IT environment reviews</li>
                         <li>ITSM tooling selection</li>
                     </ul>
                 </div>
                 <div class="service-card">
-                    <h3>Infrastructure & Project Delivery</h3>
-                    <p>End-to-end technical project delivery with proven vendor management expertise.</p>
+                    <h3>Infrastructure and Project Delivery</h3>
+                    <p>End-to-end infrastructure delivery with vendor management, procurement and ISO 27001 compliance framing.</p>
                     <ul>
                         <li>Network infrastructure projects</li>
-                        <li>Vendor coordination & procurement</li>
-                        <li>Server & cloud environments</li>
-                        <li>Workplace technology</li>
-                        <li>Automation solutions</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h3>Emerging Technology & Innovation</h3>
-                    <p>Evaluate and implement AI-driven automation tools to enhance IT operational efficiency.</p>
-                    <ul>
-                        <li>n8n workflow automation</li>
-                        <li>ComfyUI implementations</li>
-                        <li>Claude Code & OpenClaw</li>
-                        <li>Make.com integrations</li>
-                        <li>Technology roadmaps</li>
+                        <li>Vendor coordination and procurement</li>
+                        <li>Server and cloud environments</li>
+                        <li>Workplace technology rollouts</li>
+                        <li>AI search and agent readiness audit</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tutorials Section -->
-    <section id="tutorials">
-        <div class="container">
-            <h2>Learning Resources</h2>
-            <p class="section-subtitle">Curated tutorials and guides for AI automation and workflow development</p>
-            <div class="tutorials-grid">
-                <a href="https://docs.n8n.io/advanced-ai/intro-tutorial/" target="_blank" class="tutorial-card">
-                    <h4>n8n AI Workflows</h4>
-                    <p>Build AI-powered chat agents and automation workflows</p>
-                    <span class="link-text">View Tutorial →</span>
-                </a>
-                <a href="https://www.youtube.com/watch?v=eMZmDH3T2bY" target="_blank" class="tutorial-card">
-                    <h4>Claude Code Tutorial for Beginners</h4>
-                    <p>Beginners guide to Anthropic Claude Code</p>
-                    <span class="link-text">View Tutorial →</span>
-                </a>
-                <a href="https://docs.comfy.org/get_started/first_generation" target="_blank" class="tutorial-card">
-                    <h4>ComfyUI First Generation</h4>
-                    <p>Official getting started guide for ComfyUI</p>
-                    <span class="link-text">View Tutorial →</span>
-                </a>
-                <a href="https://blog.n8n.io/tag/tutorial/" target="_blank" class="tutorial-card">
-                    <h4>n8n Blog Tutorials</h4>
-                    <p>Step-by-step guides for workflow automation</p>
-                    <span class="link-text">View Tutorials →</span>
-                </a>
-                <a href="https://comfyui-wiki.com/en/tutorial/basic" target="_blank" class="tutorial-card">
-                    <h4>ComfyUI Wiki</h4>
-                    <p>Comprehensive tutorials for all skill levels</p>
-                    <span class="link-text">View Wiki →</span>
-                </a>
-                <a href="https://github.com/n8n-io" target="_blank" class="tutorial-card">
-                    <h4>n8n GitHub</h4>
-                    <p>Source code, starter kits, and community resources</p>
-                    <span class="link-text">View Repository →</span>
-                </a>
-                <a href="https://openart.ai/workflows" target="_blank" class="tutorial-card">
-                    <h4>OpenArt Workflows</h4>
-                    <p>ComfyUI workflow library and examples</p>
-                    <span class="link-text">Browse Workflows →</span>
-                </a>
-                <a href="https://www.youtube.com/watch?v=fVUlrpaWNxg" target="_blank" class="tutorial-card">
-                    <h4>AI marketing Masterclass</h4>
-                    <p>AI marketing Masterclass: From beginner to expert</p>
-                    <span class="link-text">Watch Channel →</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI News Section -->
-    <section id="news">
-        <div class="container">
-            <h2>Latest AI News</h2>
-            <p class="section-subtitle">Stay updated with the latest developments in artificial intelligence and automation</p>
-            <div class="news-grid" id="news-container">
-                <div class="news-loading" id="news-loading">
-                    <div class="spinner"></div>
-                    <p>Loading latest AI news...</p>
-                </div>
-            </div>
-            <div class="news-sources">
-                <a href="https://openai.com/blog" target="_blank">OpenAI Blog →</a>
-                <a href="https://www.anthropic.com/news" target="_blank">Anthropic News →</a>
-                <a href="https://ai.google/discover/research/" target="_blank">Google AI →</a>
-                <a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI →</a>
-                <a href="https://www.theverge.com/ai-artificial-intelligence" target="_blank">The Verge AI →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
+    <!-- Contact section -->
     <section id="contact">
         <div class="container">
-            <h2>Get In Touch</h2>
-            <p class="section-subtitle">Ready to transform your business with AI automation or strengthen your IT operations?</p>
+            <h2>Get in Touch</h2>
+            <p class="section-subtitle">For consulting enquiries, product questions or to discuss the ISO 42001 assessment results.</p>
             <div class="contact-wrapper">
                 <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p>Whether you're looking for IT leadership expertise, AI automation consulting, or technology advisory services, I'm here to help your organisation achieve its goals.</p>
+                    <h3>Contact</h3>
+                    <p>Sydney-based, available for advisory engagements and infrastructure projects across Australia.</p>
                     <ul class="contact-details">
                         <li>
                             <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -333,11 +277,11 @@
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                            <a href="https://www.linkedin.com/in/malcolm-d-thomson/" target="_blank">LinkedIn Profile</a>
+                            <a href="https://www.linkedin.com/in/malcolm-d-thomson/" target="_blank" rel="noopener">LinkedIn Profile</a>
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                            <a href="https://youtube.com/@sydneyaiworks" target="_blank">YouTube Channel</a>
+                            <a href="https://youtube.com/@sydneyaiworks" target="_blank" rel="noopener">YouTube Channel</a>
                         </li>
                     </ul>
                 </div>
@@ -347,17 +291,19 @@
                         <input type="text" id="name" name="name" placeholder="Your name" required>
                         <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" placeholder="your@email.com" required>
-                        <label for="service">Service Interest</label>
+                        <label for="service">Enquiry type</label>
                         <select id="service" name="service">
-                            <option value="">Select a service...</option>
+                            <option value="">Select...</option>
+                            <option value="ai-governance">AI Governance and Readiness</option>
                             <option value="it-advisory">IT Operations Advisory</option>
-                            <option value="infrastructure">Infrastructure & Project Delivery</option>
-                            <option value="ai-automation">AI Automation & Innovation</option>
-                            <option value="general">General Enquiry</option>
+                            <option value="infrastructure">Infrastructure and Project Delivery</option>
+                            <option value="reportingmsp">ReportingMSP</option>
+                            <option value="iso42001-tool">ISO 42001 Assessment results</option>
+                            <option value="general">General enquiry</option>
                         </select>
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
-                        <input type="hidden" name="_subject" value="New enquiry from Sydney AI Works">
+                        <textarea id="message" name="message" placeholder="Tell me about your project or question..." required></textarea>
+                        <input type="hidden" name="_subject" value="New enquiry - Sydney AI Works">
                         <button type="submit">Send Message</button>
                     </form>
                 </div>
@@ -369,112 +315,16 @@
     <div id="footer">
         <div class="container">
             <div class="social-links">
-                <a href="https://youtube.com/@sydneyaiworks" title="YouTube" target="_blank">
+                <a href="https://youtube.com/@sydneyaiworks" title="YouTube" target="_blank" rel="noopener" aria-label="YouTube">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                 </a>
-                <a href="https://www.linkedin.com/in/malcolm-d-thomson/" title="LinkedIn" target="_blank">
+                <a href="https://www.linkedin.com/in/malcolm-d-thomson/" title="LinkedIn" target="_blank" rel="noopener" aria-label="LinkedIn">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 </a>
             </div>
-            <p>&copy; 2026 Sydney AI Works. All rights reserved. Created and hosted by Sydneyaiworks.com<br/>Professional AI Automation & IT Consulting | Sydney, NSW, Australia</p>
+            <p>&copy; 2026 Sydney AI Works. Sydney, NSW, Australia.</p>
         </div>
     </div>
 
-    <script>
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    });
-
-    // AI News Feed using rss2json API (free, no signup required)
-    async function loadAINews() {
-        const newsContainer = document.getElementById('news-container');
-        const loadingEl = document.getElementById('news-loading');
-        
-        const feeds = [
-            { url: 'https://techcrunch.com/category/artificial-intelligence/feed/', source: 'TechCrunch' },
-            { url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml', source: 'The Verge' },
-            { url: 'https://feeds.arstechnica.com/arstechnica/technology-lab', source: 'Ars Technica' }
-        ];
-
-        let allItems = [];
-        
-        for (const feed of feeds) {
-            try {
-                const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feed.url) + '&count=4');
-                const data = await response.json();
-                if (data.status === 'ok' && data.items) {
-                    data.items.forEach(item => {
-                        const title = (item.title || '').toLowerCase();
-                        const desc = (item.description || '').toLowerCase();
-                        if (title.includes('ai') || title.includes('artificial intelligence') || 
-                            title.includes('machine learning') || title.includes('chatgpt') ||
-                            title.includes('openai') || title.includes('anthropic') ||
-                            title.includes('claude') || title.includes('llm') || title.includes('gpt') ||
-                            desc.includes('artificial intelligence') || desc.includes('machine learning') ||
-                            feed.source === 'TechCrunch') {
-                            allItems.push({ ...item, source: feed.source });
-                        }
-                    });
-                }
-            } catch (error) {
-                console.log('Failed to fetch from ' + feed.source);
-            }
-        }
-
-        if (loadingEl) loadingEl.remove();
-
-        if (allItems.length > 0) {
-            allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-            const topItems = allItems.slice(0, 6);
-
-            topItems.forEach(item => {
-                const date = new Date(item.pubDate);
-                const formattedDate = date.toLocaleDateString('en-AU', { year: 'numeric', month: 'short', day: 'numeric' });
-                let description = (item.description || '').replace(/<[^>]*>/g, '').substring(0, 120) + '...';
-
-                const newsItem = document.createElement('div');
-                newsItem.className = 'news-item';
-                newsItem.innerHTML = '<span class="news-source">' + item.source + '</span>' +
-                    '<div class="news-date">' + formattedDate + '</div>' +
-                    '<h4><a href="' + item.link + '" target="_blank">' + item.title + '</a></h4>' +
-                    '<p>' + description + '</p>' +
-                    '<a href="' + item.link + '" target="_blank" class="read-more">Read More →</a>';
-                newsContainer.appendChild(newsItem);
-            });
-        } else {
-            showFallbackNews();
-        }
-    }
-
-    function showFallbackNews() {
-        const newsContainer = document.getElementById('news-container');
-        const fallbackNews = [
-            { source: 'Industry', title: 'AI Automation Transforming Business Operations', desc: 'Organisations worldwide are adopting AI-powered workflow automation to streamline operations.', link: 'https://techcrunch.com/category/artificial-intelligence/' },
-            { source: 'Technology', title: 'Large Language Models Continue to Evolve', desc: 'New developments in LLM technology enabling more sophisticated business applications.', link: 'https://www.theverge.com/ai-artificial-intelligence' },
-            { source: 'Automation', title: 'Low-Code AI Tools Democratising Development', desc: 'Tools like n8n, Make.com, and ComfyUI making AI accessible to non-technical users.', link: 'https://n8n.io/blog/' },
-            { source: 'Enterprise', title: 'IT Service Management Meets AI', desc: 'AI-driven ITSM solutions improving incident resolution times across enterprises.', link: 'https://www.gartner.com/en/information-technology' },
-            { source: 'Research', title: 'Multimodal AI Systems Advancing Rapidly', desc: 'Vision and language models converging to create more capable AI assistants.', link: 'https://ai.google/discover/research/' },
-            { source: 'Cloud', title: 'Cloud AI Services Expanding Capabilities', desc: 'Major cloud providers enhancing AI service offerings with new models.', link: 'https://news.microsoft.com/source/topics/ai/' }
-        ];
-
-        fallbackNews.forEach(item => {
-            const newsItem = document.createElement('div');
-            newsItem.className = 'news-item';
-            newsItem.innerHTML = '<span class="news-source">' + item.source + '</span>' +
-                '<div class="news-date">Latest</div>' +
-                '<h4><a href="' + item.link + '" target="_blank">' + item.title + '</a></h4>' +
-                '<p>' + item.desc + '</p>' +
-                '<a href="' + item.link + '" target="_blank" class="read-more">Read More →</a>';
-            newsContainer.appendChild(newsItem);
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', loadAINews);
-    </script>
 </body>
 </html>
