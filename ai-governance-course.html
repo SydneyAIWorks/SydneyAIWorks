@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Governance in Practice - ISO 42001 Course | Sydney AI Works</title>
+    <meta name="description" content="A self-paced course that explains what ISO 42001 actually requires, helps you work out where your organisation stands, and gives you the language to present to a board. No compliance background needed.">
+    <meta property="og:title" content="AI Governance in Practice - ISO 42001 Course">
+    <meta property="og:description" content="A self-paced course on ISO 42001 for the person who was handed AI governance responsibility. Six modules, practical exercises, board briefing template.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sydneyaiworks.com/ai-governance-course.html">
+    <link rel="canonical" href="https://sydneyaiworks.com/ai-governance-course.html">
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f4f4f4; }
+        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('ScrapperWindow.png'); background-repeat: repeat; opacity: 0.03; z-index: 0; pointer-events: none; }
+
+        /* Header */
+        #header {
+            position: relative;
+            color: white;
+            padding: 80px 0 40px;
+            text-align: center;
+            overflow: hidden;
+        }
+        #header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(135deg, rgba(38,51,85,0.36), rgba(9,14,22,0.28)), url('sydney\ background1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: overlay;
+            z-index: 0;
+            pointer-events: none;
+            filter: brightness(0.4);
+        }
+        #header .container { position: relative; z-index: 1; }
+        .header-logo { margin-bottom: 16px; }
+        .header-logo img { height: 70px; width: auto; }
+        #header h1 { font-size: 3rem; margin-bottom: 16px; font-weight: 600; letter-spacing: -0.5px; text-shadow: 0 3px 14px rgba(0,0,0,0.45); }
+        #header .subtitle { font-size: 1.2rem; opacity: 0.95; margin-bottom: 24px; font-weight: 300; color: #bfefff; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .nav-links { margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .nav-links a { color: white; text-decoration: none; padding: 8px 18px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; transition: all 0.3s; font-size: 0.9rem; }
+        .nav-links a:hover { background: rgba(255,255,255,0.1); border-color: #38b2ac; }
+        .hero-cta { display: inline-block; background: linear-gradient(135deg, #3182ce, #38b2ac); color: white; text-decoration: none; padding: 14px 32px; border-radius: 6px; font-weight: 600; font-size: 1rem; margin-top: 28px; transition: all 0.3s; }
+        .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(56,178,172,0.4); }
+
+        /* Container */
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+
+        /* Main card */
+        #main { background: rgba(255,255,255,0.97); margin: 30px auto 0; max-width: 900px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); overflow: hidden; padding: 0 0 60px; }
+
+        /* Sections */
+        .section { padding: 48px 48px 0; }
+        .section-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #38b2ac; margin-bottom: 10px; }
+        .section h2 { font-size: 1.6rem; color: #1e293b; margin-bottom: 20px; font-weight: 600; }
+        .section p { color: #4a5568; line-height: 1.75; margin-bottom: 14px; font-size: 1rem; }
+
+        /* Divider */
+        .divider { height: 1px; background: #e5e7eb; margin: 48px 48px 0; }
+
+        /* Module list */
+        .module-list { margin-top: 24px; }
+        .module { border: 1px solid #e2e8f0; border-radius: 8px; padding: 28px; margin-bottom: 16px; background: #f8fafc; }
+        .module-number { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #38b2ac; margin-bottom: 6px; }
+        .module h3 { font-size: 1.1rem; font-weight: 600; color: #1e293b; margin-bottom: 10px; }
+        .module p { color: #4a5568; line-height: 1.7; margin-bottom: 8px; font-size: 0.95rem; }
+        .module p:last-child { margin-bottom: 0; }
+        .module .exercise { font-size: 0.9rem; color: #64748b; padding-top: 8px; border-top: 1px solid #e5e7eb; margin-top: 10px; }
+        .module .exercise strong { color: #1e293b; }
+
+        /* Audience section */
+        .audience-box { background: #f1f5f9; border-left: 4px solid #38b2ac; border-radius: 0 8px 8px 0; padding: 24px 28px; margin-top: 24px; }
+        .audience-box p { color: #4a5568; line-height: 1.75; margin-bottom: 10px; font-size: 1rem; }
+        .audience-box p:last-child { margin-bottom: 0; }
+
+        /* Comparison section */
+        .comparison-list { margin-top: 24px; }
+        .comparison-item { border-bottom: 1px solid #e5e7eb; padding: 18px 0; }
+        .comparison-item:last-child { border-bottom: none; }
+        .comparison-item p { color: #4a5568; line-height: 1.7; font-size: 0.97rem; }
+        .comparison-item p strong { color: #1e293b; }
+
+        /* Waitlist section */
+        #waitlist { padding: 48px 48px 0; }
+        #waitlist .section-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #38b2ac; margin-bottom: 10px; }
+        #waitlist h2 { font-size: 1.6rem; color: #1e293b; margin-bottom: 14px; font-weight: 600; }
+        #waitlist .intro { color: #4a5568; line-height: 1.75; margin-bottom: 28px; font-size: 1rem; }
+        .tally-wrap { border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; background: #fff; }
+        .waitlist-note { font-size: 0.85rem; color: #94a3b8; margin-top: 14px; text-align: center; }
+
+        /* Tally branding override */
+        .tally-default-overlay,
+        [data-element="tally-branding"] { display: none !important; }
+
+        /* Footer */
+        #footer { text-align: center; padding: 28px 20px; color: #94a3b8; font-size: 0.82rem; margin-top: 30px; }
+        #footer a { color: #3182ce; text-decoration: none; }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            #header h1 { font-size: 2rem; }
+            #header .subtitle { font-size: 1.05rem; }
+            .section, #waitlist { padding-left: 24px; padding-right: 24px; }
+            .divider { margin-left: 24px; margin-right: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <div class="container">
+        <div class="header-logo">
+            <a href="/"><img src="Harbor_Bridge_white.png" alt="Sydney AI Works"></a>
+        </div>
+        <h1>AI governance just landed on your desk.</h1>
+        <p class="subtitle">AI Governance in Practice is a self-paced course that explains what ISO 42001 actually requires, helps you work out where your organisation stands, and gives you the language to present your position to a board or leadership team. No compliance background needed.</p>
+        <a href="#waitlist" class="hero-cta">Join the waitlist</a>
+        <nav class="nav-links" aria-label="Site navigation">
+            <a href="/">Home</a>
+            <a href="/#services">Services</a>
+            <a href="/#contact">Contact</a>
+        </nav>
+    </div>
+</div>
+
+<div id="main">
+
+    <div class="section">
+        <div class="section-label">The problem</div>
+        <h2>The standard is not the problem. The language is.</h2>
+        <p>Most organisations now have someone responsible for AI governance. In a lot of cases, that person was handed the role rather than hired for it.</p>
+        <p>If that is you, you already know the situation. The standard exists, procurement questions are arriving, and the board wants an update. But every document you open assumes you already know what an AIMS is, what a control objective means, and how a risk register differs from a risk assessment.</p>
+        <p>The free courses cover the clauses. The template packs give you the documents. Neither one explains what you are actually looking at, or how to talk about it credibly to people who are not reading the standard.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <div class="section-label">The course</div>
+        <h2>A practical course, not a compliance manual.</h2>
+        <p>AI Governance in Practice covers ISO 42001 in the order that matters for someone who needs to understand it quickly and act on it. Six modules, each with a practical exercise.</p>
+
+        <div class="module-list">
+            <div class="module">
+                <div class="module-number">Module 1</div>
+                <h3>What just happened</h3>
+                <p>Why AI governance landed on your desk, what procurement teams are actually asking for, and what ISO 42001 is in plain terms.</p>
+                <div class="exercise"><strong>Exercise:</strong> a readiness self-assessment that tells you where your organisation sits today.</div>
+            </div>
+            <div class="module">
+                <div class="module-number">Module 2</div>
+                <h3>The language</h3>
+                <p>AIMS, controls, risk registers, impact assessments - every term that matters, defined in ordinary words with a real example.</p>
+                <div class="exercise"><strong>Exercise:</strong> interactive flashcard deck. Ten terms, ten plain English definitions, immediate feedback.</div>
+            </div>
+            <div class="module">
+                <div class="module-number">Module 3</div>
+                <h3>What the standard wants from you</h3>
+                <p>The requirements grouped by what you actually have to do, not by clause number.</p>
+                <div class="exercise"><strong>Exercise:</strong> scenario decisions against a fictional mid-size company.</div>
+            </div>
+            <div class="module">
+                <div class="module-number">Module 4</div>
+                <h3>Finding your gaps</h3>
+                <p>How to run an honest internal assessment without a compliance function.</p>
+                <div class="exercise"><strong>Exercise:</strong> guided gap walkthrough with a downloadable worksheet.</div>
+            </div>
+            <div class="module">
+                <div class="module-number">Module 5</div>
+                <h3>Talking to your board</h3>
+                <p>How to present AI risk to leadership without alarming people or underselling the problem. What to say when the answer is "we are not ready."</p>
+                <div class="exercise"><strong>Deliverable:</strong> board briefing template you can take straight into the meeting.</div>
+            </div>
+            <div class="module">
+                <div class="module-number">Module 6</div>
+                <h3>What next</h3>
+                <p>Realistic options from here. What certification actually costs, when a consultant is worth it, and what the pathway looks like if you want to go further.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <div class="section-label">Audience</div>
+        <h2>Who this is for</h2>
+        <div class="audience-box">
+            <p>The person who was made responsible for AI governance in their organisation, whatever their title. In practice: IT and ICT managers, risk and compliance staff, operations leads, data and analytics people, and executive or general management at organisations without a dedicated compliance function.</p>
+            <p>This is not accredited training or exam preparation. It is for the person who needs working understanding and the ability to hold the conversation, upward and with external partners.</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <div class="section-label">Context</div>
+        <h2>Why this exists</h2>
+
+        <div class="comparison-list">
+            <div class="comparison-item">
+                <p><strong>Free ISO 42001 awareness courses are available.</strong> They are aimed at implementation teams and assume comfort with standards language.</p>
+            </div>
+            <div class="comparison-item">
+                <p><strong>Documentation toolkits at around USD 200</strong> give you the templates, assuming you already know what you are building.</p>
+            </div>
+            <div class="comparison-item">
+                <p><strong>Accredited training for people becoming specialists</strong> starts at around USD 1,500 and is designed for a different audience entirely.</p>
+            </div>
+            <div class="comparison-item">
+                <p>None of them are built for the person who was handed AI responsibility and has a board meeting coming.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <div class="section-label">About the author</div>
+        <h2>Built by a practitioner</h2>
+        <p>Written by Malcolm Thomson, founder of Sydney AI Works. Malcolm works with organisations on AI governance implementation and is currently working toward ISO 42001 Lead Implementer certification. This course draws on that practical implementation work, not on a textbook.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div id="waitlist">
+        <div class="section-label">Waitlist</div>
+        <h2>Join the waitlist</h2>
+        <p class="intro">AI Governance in Practice is launching soon. Join the list and you will be the first to know when it opens, along with early access pricing.</p>
+        <div class="tally-wrap">
+            <iframe data-tally-src="https://tally.so/embed/VLWXjj?hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="247" frameborder="0" marginheight="0" marginwidth="0" title="AI Governance in Practice - Waitlist"></iframe>
+            <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+        </div>
+        <p class="waitlist-note">No spam. One email when the course opens.</p>
+    </div>
+
+</div>
+
+<div id="footer">
+    <a href="/">Sydney AI Works</a> - Sydney, NSW, Australia
+</div>
+
+</body>
+</html>
