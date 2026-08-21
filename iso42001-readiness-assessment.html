@@ -152,6 +152,12 @@
   .cta .contact a:hover{text-decoration:underline}
   .cta .contact .ck{font-family:'IBM Plex Mono',monospace;color:#7a8a9a;font-size:.74rem;display:block;margin-bottom:1px}
 
+  .course-callout{margin-top:28px;background:rgba(14,124,107,.06);border:1px solid rgba(14,124,107,.2);border-left:4px solid var(--accent);border-radius:14px;padding:26px 28px 28px}
+  .course-callout h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.2rem;color:var(--ink)}
+  .course-callout p{color:var(--muted);margin-top:10px;max-width:64ch;font-size:.95rem;line-height:1.6}
+  .course-callout .cc-btn{display:inline-block;margin-top:18px;font-weight:600;font-size:.95rem;padding:12px 22px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;transition:.15s}
+  .course-callout .cc-btn:hover{background:#0c6c5d}
+
   .result-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 
   footer{border-top:1px solid var(--line);margin-top:14px;padding:22px 0 40px}
@@ -601,6 +607,15 @@
     actions.appendChild(printBtn);
     actions.appendChild(restart);
     c.appendChild(actions);
+
+    // course waitlist callout
+    var courseCallout = el('<div class="course-callout"></div>');
+    courseCallout.appendChild(el('<h3>Want to know how to close these gaps?</h3>'));
+    var ccP = el('<p></p>');
+    ccP.textContent = "AI Governance in Practice is a plain English course that walks you through exactly what ISO 42001 requires, helps you run a proper gap assessment, and gives you the tools to present your position to a board. No compliance background needed.";
+    courseCallout.appendChild(ccP);
+    courseCallout.appendChild(el('<a class="cc-btn" href="/ai-governance-course.html#waitlist">Join the waitlist</a>'));
+    c.appendChild(courseCallout);
 
     card.appendChild(c);
 
