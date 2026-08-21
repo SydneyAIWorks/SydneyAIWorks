@@ -1,19 +1,47 @@
-# AI Governance in Practice - Status
+# STATUS
 
-## Version 0.2 - 2026-08-22
+**Version: 0.2**
+**Updated: 22 August 2026**
 
-### Completed since v0.1
+Tell Claude this version number at the start of every session.
 
-- Course name confirmed: AI Governance in Practice
-- Module 2 flashcard prototype built and committed to prototype/module-02-flashcards.html
-- Waitlist page live at sydneyaiworks.com/ai-governance-course.html
-- Tally form capturing submissions to malc.thomson@gmail.com
-- Readiness assessment updated with waitlist CTA at results screen
-- Assessment link on waitlist page opens in new tab
+---
 
-### Next up
+## Where the project is
 
-1. Review AIQI and Risk3Sixty free courses - still blocking on content build
-2. Drive traffic to the waitlist page
-3. Build Module 1 content once competitor review done
-4. Set pricing once waitlist gives a clearer signal
+Site live at sydneyaiworks.com. Waitlist page for AI Governance in Practice added. Two homepage improvements pending.
+
+---
+
+## Done
+
+- [x] Site rebuilt and live on GitHub Pages
+- [x] Homepage with product and services cards
+- [x] ISO 42001 readiness assessment tool live
+- [x] ReportingMSP listed and linked
+- [x] Services pages live
+- [x] AI governance course waitlist page added - ai-governance-course.html
+
+---
+
+## Next up, in order
+
+1. **Make all homepage cards fully clickable** - entire card should be the link, not just the blue text at the bottom.
+2. **Add AI Governance in Practice card to homepage grid** - label COURSE, heading AI Governance in Practice, body one line, link to /ai-governance-course.html.
+
+---
+
+## Boundary with the course project
+
+- This repo owns everything on sydneyaiworks.com including the waitlist page
+- The course application will live at course.sydneyaiworks.com in a separate repo
+- Do not mix the two. Changes to course content or the course app happen in the AI Governance Course repo, not here.
+
+---
+
+## Version history
+
+| Version | Date | Change |
+|---|---|---|
+| 0.1 | 16 Aug 2026 | Initial. Site live. |
+| 0.2 | 22 Aug 2026 | Added ai-governance-course.html waitlist page. Homepage card and clickability improvements pending. |
