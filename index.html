@@ -45,7 +45,7 @@
         /* Main content grid */
         #main { background: rgba(255,255,255,0.95); margin: 30px auto 0; max-width: 1200px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); overflow: hidden; }
         .posts { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0; }
-        .post { border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; padding: 36px 32px; transition: background-color 0.3s; background: #f8fafc; }
+        .post { border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; padding: 36px 32px; transition: background-color 0.3s; background: #f8fafc; position: relative; }
         .post:hover { background-color: #f1f5f9; }
         .post:nth-child(odd):not(.featured) { background: #ffffff; }
         .post:nth-child(odd):not(.featured):hover { background: #f8fafc; }
@@ -60,6 +60,8 @@
         .post-meta { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #38b2ac; background: rgba(56,178,172,0.1); border: 1px solid rgba(56,178,172,0.3); padding: 3px 9px; border-radius: 4px; margin-bottom: 14px; }
         .read-more { color: #3182ce; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
         .read-more:hover { color: #38b2ac; }
+        .post.featured .read-more { position: static; z-index: auto; }
+        .post .read-more::after { content: ""; position: absolute; inset: 0; }
 
         /* Products section */
         #products { padding: 60px 0; background: #fff; }
