@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Data Centre Watch Australia | Sydney AI Works</title>
+<link rel="canonical" href="https://sydneyaiworks.com/datacentre-watch/">
+<meta property="og:title" content="AI Data Centre Watch Australia">
+<meta property="og:description" content="Interactive map of AI data centres proposed, contested, approved, built or cancelled across Australia, with community response and sources.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sydneyaiworks.com/datacentre-watch/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Dataset","name":"AI Data Centre Watch Australia","description":"Status, capacity, community response and sources for AI data centre projects across Australia.","url":"https://sydneyaiworks.com/datacentre-watch/","creator":{"@type":"Organization","name":"Sydney AI Works","url":"https://sydneyaiworks.com"},"spatialCoverage":"Australia","license":"https://creativecommons.org/licenses/by/4.0/"}
+</script>
+<meta name="description" content="Where AI data centres are proposed, contested, approved, built or cancelled across Australia, with community response and sources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  :root {
+    --bg: #EEF0EC;
+    --panel: #FAFBF8;
+    --ink: #1F2A24;
+    --ink-soft: #55635C;
+    --rule: #D3D8D1;
+    --operating: #3B5B8C;
+    --building: #C98B1F;
+    --approved: #4E8A66;
+    --proposed: #7A6E9E;
+    --contested: #B8432F;
+    --cancelled: #8A8F86;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    font-family: "Public Sans", system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  a { color: inherit; }
+  .app { display: grid; grid-template-columns: 400px 1fr; grid-template-rows: auto 1fr; height: 100%; }
+  header {
+    grid-column: 1 / -1;
+    padding: 14px 22px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--rule);
+    display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;
+  }
+  header .brand { text-decoration: none; color: var(--ink-soft); font-size: 13px; font-weight: 600; padding-right: 18px; border-right: 1px solid var(--rule); }
+  header .brand:hover { color: var(--ink); }
+  header h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+  header .meta { color: var(--ink-soft); font-size: 13px; }
+  header .meta strong { color: var(--ink); font-weight: 600; }
+  aside {
+    background: var(--panel);
+    border-right: 1px solid var(--rule);
+    display: flex; flex-direction: column; min-height: 0;
+  }
+  .filters { padding: 12px 16px; border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    border: 1px solid var(--rule); background: transparent; color: var(--ink);
+    font: inherit; font-size: 13px; padding: 4px 10px 4px 8px; border-radius: 999px;
+    cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .chip .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
+  .chip.off { opacity: 0.4; }
+  .chip:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .list { overflow-y: auto; flex: 1; }
+  .item {
+    padding: 12px 16px; border-bottom: 1px solid var(--rule); cursor: pointer;
+    border-left: 4px solid var(--c);
+  }
+  .item:hover, .item.active { background: #EFF2EC; }
+  .item h3 { margin: 0 0 2px; font-size: 14.5px; font-weight: 600; line-height: 1.3; }
+  .item .where { color: var(--ink-soft); font-size: 13px; }
+  .item .row { display: flex; gap: 10px; font-size: 12.5px; margin-top: 4px; color: var(--ink-soft); }
+  .item .status { color: var(--c); font-weight: 600; }
+  .empty { padding: 24px 16px; color: var(--ink-soft); }
+  #map { min-height: 0; }
+  .leaflet-popup-content { font-family: inherit; font-size: 13.5px; line-height: 1.45; margin: 12px 14px; max-width: 320px; }
+  .leaflet-popup-content h3 { margin: 0 0 4px; font-size: 15px; }
+  .leaflet-popup-content .status { font-weight: 600; }
+  .leaflet-popup-content p { margin: 6px 0; }
+  .leaflet-popup-content .k { color: var(--ink-soft); }
+  .leaflet-popup-content .conf { font-size: 12px; color: var(--ink-soft); border-top: 1px solid var(--rule); padding-top: 6px; margin-top: 8px; }
+  .leaflet-popup-content ul { margin: 4px 0 0; padding-left: 18px; }
+  footer {
+    grid-column: 1 / -1; padding: 8px 22px; font-size: 12px; color: var(--ink-soft);
+    background: var(--panel); border-top: 1px solid var(--rule);
+  }
+  @media (max-width: 760px) {
+    .app { grid-template-columns: 1fr; grid-template-rows: auto 55vh 1fr auto; }
+    aside { border-right: 0; border-top: 1px solid var(--rule); order: 3; }
+    #map { order: 2; }
+    footer { order: 4; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <a class="brand" href="https://sydneyaiworks.com">Sydney AI Works</a>
+    <h1>AI Data Centre Watch Australia</h1>
+    <span class="meta" id="counts"></span>
+    <span class="meta">Updated <strong id="updated"></strong></span>
+  </header>
+  <aside>
+    <div class="filters" id="filters" aria-label="Filter by status"></div>
+    <div class="list" id="list"></div>
+  </aside>
+  <div id="map" role="region" aria-label="Map of projects"></div>
+  <footer>
+    Locations are approximate. Each project lists its sources and a confidence rating. Know of a project or a correction? <a href="https://sydneyaiworks.com/#contact">Send it through</a>. &copy; 2026 Sydney AI Works.
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="data.js"></script>
+<script>
+  const STATUS = {
+    operating: { label: "Operating", color: "var(--operating)" },
+    building:  { label: "Under construction", color: "var(--building)" },
+    approved:  { label: "Approved", color: "var(--approved)" },
+    proposed:  { label: "Proposed", color: "var(--proposed)" },
+    contested: { label: "Contested", color: "var(--contested)" },
+    cancelled: { label: "Cancelled", color: "var(--cancelled)" }
+  };
+  const cssColor = v => getComputedStyle(document.documentElement).getPropertyValue(v.slice(4, -1)).trim();
+
+  document.getElementById("updated").textContent = LAST_UPDATED;
+
+  const map = L.map("map", { zoomControl: true }).setView([-28.5, 134], 4);
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+    maxZoom: 18
+  }).addTo(map);
+
+  const active = new Set(Object.keys(STATUS));
+  const markers = {};
+
+  function radius(mw) { return mw ? Math.max(7, Math.min(22, 5 + Math.sqrt(mw) * 0.35)) : 7; }
+
+  function popupHtml(p) {
+    const s = STATUS[p.status];
+    const src = p.sources.length
+      ? "<ul>" + p.sources.map(x => `<li><a href="${x.url}" target="_blank" rel="noopener">${x.label}</a></li>`).join("") + "</ul>"
+      : "<span class='k'>No source link recorded yet.</span>";
+    return `
+      <h3>${p.name}</h3>
+      <div><span class="status" style="color:${cssColor(s.color)}">${s.label}</span>
+        <span class="k"> &middot; ${p.location}, ${p.state}</span></div>
+      <p><span class="k">Capacity:</span> ${p.capacity_mw ? p.capacity_mw.toLocaleString() + " MW" : "not stated"}
+        &nbsp; <span class="k">Developer:</span> ${p.developer}</p>
+      <p>${p.summary}</p>
+      <p><span class="k">Community:</span> ${p.community}</p>
+      <p><span class="k">Sources:</span> ${src}</p>
+      <div class="conf">Confidence: ${p.confidence} &middot; entry updated ${p.updated}</div>`;
+  }
+
+  PROJECTS.forEach(p => {
+    const m = L.circleMarker([p.lat, p.lng], {
+      radius: radius(p.capacity_mw),
+      color: "#fff", weight: 1.5,
+      fillColor: cssColor(STATUS[p.status].color), fillOpacity: 0.85
+    }).bindPopup(popupHtml(p), { maxWidth: 340 });
+    m.on("click", () => highlight(p.id));
+    markers[p.id] = m;
+  });
+
+  function highlight(id) {
+    document.querySelectorAll(".item").forEach(el => el.classList.toggle("active", el.dataset.id === id));
+  }
+
+  function render() {
+    // markers
+    Object.values(markers).forEach(m => map.removeLayer(m));
+    const shown = PROJECTS.filter(p => active.has(p.status));
+    shown.forEach(p => markers[p.id].addTo(map));
+
+    // list
+    const list = document.getElementById("list");
+    list.innerHTML = "";
+    if (!shown.length) { list.innerHTML = "<div class='empty'>No projects match. Turn a status back on above.</div>"; }
+    shown.sort((a, b) => (b.capacity_mw || 0) - (a.capacity_mw || 0)).forEach(p => {
+      const s = STATUS[p.status];
+      const el = document.createElement("div");
+      el.className = "item"; el.dataset.id = p.id; el.tabIndex = 0;
+      el.style.setProperty("--c", s.color);
+      el.innerHTML = `<h3>${p.name}</h3>
+        <div class="where">${p.location}, ${p.state}</div>
+        <div class="row"><span class="status">${s.label}</span>
+          <span>${p.capacity_mw ? p.capacity_mw.toLocaleString() + " MW" : "capacity not stated"}</span></div>`;
+      const go = () => { map.flyTo([p.lat, p.lng], 11, { duration: 0.8 }); markers[p.id].openPopup(); highlight(p.id); };
+      el.addEventListener("click", go);
+      el.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+      list.appendChild(el);
+    });
+
+    // counts
+    const c = {};
+    PROJECTS.forEach(p => c[p.status] = (c[p.status] || 0) + 1);
+    document.getElementById("counts").innerHTML =
+      `<strong>${PROJECTS.length}</strong> projects &middot; ` +
+      Object.keys(STATUS).filter(k => c[k]).map(k => `${c[k]} ${STATUS[k].label.toLowerCase()}`).join(", ");
+  }
+
+  const filters = document.getElementById("filters");
+  Object.entries(STATUS).forEach(([k, s]) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.style.setProperty("--c", s.color); b.setAttribute("aria-pressed", "true");
+    b.innerHTML = `<span class="dot"></span>${s.label}`;
+    b.addEventListener("click", () => {
+      active.has(k) ? active.delete(k) : active.add(k);
+      b.classList.toggle("off", !active.has(k));
+      b.setAttribute("aria-pressed", String(active.has(k)));
+      render();
+    });
+    filters.appendChild(b);
+  });
+
+  render();
+</script>
+</body>
+</html>
