@@ -31,7 +31,8 @@
     --cancelled: #8A8F86;
   }
   * { box-sizing: border-box; }
-  html, body { height: 100%; margin: 0; }
+  html { height: 100%; }
+  body { height: 100%; margin: 0; display: flex; flex-direction: column; }
   body {
     font-family: "Public Sans", system-ui, -apple-system, sans-serif;
     color: var(--ink);
@@ -40,7 +41,7 @@
     line-height: 1.5;
   }
   a { color: inherit; }
-  .app { display: grid; grid-template-columns: 400px 1fr; grid-template-rows: auto 1fr; height: 100%; }
+  .app { display: grid; grid-template-columns: 400px 1fr; grid-template-rows: auto 1fr; flex: 1; min-height: 0; }
   header {
     grid-column: 1 / -1;
     padding: 14px 22px;
@@ -96,9 +97,28 @@
     #map { order: 2; }
     footer { order: 4; }
   }
+  /* site nav */
+  .site-nav { background: linear-gradient(135deg, #263355, #090e16); }
+  .site-nav .nav-links { margin-top: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 14px 20px; }
+  .site-nav .nav-links a { color: white; text-decoration: none; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; transition: all 0.3s; }
+  .site-nav .nav-links a:hover { background: rgba(255,255,255,0.1); border-color: #38b2ac; }
+  .site-nav .nav-links a[aria-current="page"] { background: rgba(56,178,172,0.2); border-color: #38b2ac; color: #bfefff; }
+  @media (max-width: 768px) {
+    .site-nav .nav-links { flex-direction: column; align-items: center; }
+    .site-nav .nav-links a { width: 80%; text-align: center; }
+  }
 </style>
 </head>
 <body>
+<div class="site-nav">
+  <nav class="nav-links" aria-label="Site navigation">
+    <a href="https://sydneyaiworks.com/#products">Products and Tools</a>
+    <a href="https://sydneyaiworks.com/#services">Services</a>
+    <a href="https://sydneyaiworks.com/about.html">About</a>
+    <a href="https://sydneyaiworks.com/#contact">Contact</a>
+    <a href="https://sydneyaiworks.com/datacentre-watch/" aria-current="page">Data Centre Watch</a>
+  </nav>
+</div>
 <div class="app">
   <header>
     <a class="brand" href="https://sydneyaiworks.com">Sydney AI Works</a>
