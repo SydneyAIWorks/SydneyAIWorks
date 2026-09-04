@@ -190,26 +190,53 @@
     .gap{break-inside:avoid}
   }
   /* site nav */
-  .site-nav { background: linear-gradient(135deg, #263355, #090e16); }
-  .site-nav .nav-links { margin-top: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 14px 20px; }
-  .site-nav .nav-links a { color: white; text-decoration: none; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; transition: all 0.3s; }
+  .site-nav { position: relative; overflow: hidden; }
+  .site-nav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(135deg, rgba(38,51,85,0.36), rgba(9,14,22,0.28)), url('sydney\ background1.jpg');
+    background-size: cover;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    filter: brightness(0.6);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .site-nav .nav-inner {
+    position: relative; z-index: 1;
+    display: flex; align-items: flex-start; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px;
+    padding: 32px 24px 16px 24px;
+  }
+  .site-nav .nav-brand img { height: 44px; width: auto; display: block; }
+  .site-nav .nav-links { margin-top: 0; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; }
+  .site-nav .nav-links a { color: white; text-decoration: none; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; transition: all 0.3s; font-size: 14px; }
   .site-nav .nav-links a:hover { background: rgba(255,255,255,0.1); border-color: #38b2ac; }
   .site-nav .nav-links a[aria-current="page"] { background: rgba(56,178,172,0.2); border-color: #38b2ac; color: #bfefff; }
   @media (max-width: 768px) {
-    .site-nav .nav-links { flex-direction: column; align-items: center; }
-    .site-nav .nav-links a { width: 80%; text-align: center; }
+    .site-nav .nav-inner { flex-direction: column; align-items: center; }
+    .site-nav .nav-links { justify-content: center; }
   }
 </style>
 </head>
 <body>
 <div class="site-nav">
-  <nav class="nav-links" aria-label="Site navigation">
-    <a href="https://sydneyaiworks.com/#products">Products and Tools</a>
-    <a href="https://sydneyaiworks.com/#services">Services</a>
-    <a href="https://sydneyaiworks.com/about.html">About</a>
-    <a href="https://sydneyaiworks.com/#contact">Contact</a>
-    <a href="https://sydneyaiworks.com/iso42001-readiness-assessment.html" aria-current="page">ISO 42001 Assessment</a>
-  </nav>
+  <div class="nav-inner">
+    <a href="https://sydneyaiworks.com">
+      <img src="Harbor_Bridge_white.png" alt="Sydney AI Works">
+    </a>
+    <nav class="nav-links" aria-label="Site navigation">
+      <a href="https://sydneyaiworks.com">Sydney AI Works</a>
+      <a href="https://sydneyaiworks.com/#products">Products and Tools</a>
+      <a href="https://sydneyaiworks.com/#services">Services</a>
+      <a href="https://sydneyaiworks.com/about.html">About</a>
+      <a href="https://sydneyaiworks.com/#contact">Contact</a>
+      <a href="https://sydneyaiworks.com/datacentre-watch/">Data Centre Watch</a>
+      <a href="https://sydneyaiworks.com/iso42001-readiness-assessment.html" aria-current="page">ISO 42001 Assessment</a>
+    </nav>
+  </div>
 </div>
 <header>
   <div class="head-inner">
