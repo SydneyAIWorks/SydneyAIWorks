@@ -6,7 +6,7 @@
 //             named source; low = needs verification
 // Coordinates are approximate (street / site level), not exact parcels.
 
-const LAST_UPDATED = "2026-09-03";
+const LAST_UPDATED = "2026-09-05";
 
 const PROJECTS = [
   {
@@ -77,14 +77,15 @@ const PROJECTS = [
     capacity_mw: 288,
     developer: "Firmus Technologies",
     summary: "288 MW facility with two data halls and 276 backup diesel generators in the Bell Bay Advanced Manufacturing Zone. George Town Council approved it 6-1 on 25 August 2026 with conditions, including a noise survey within 60 days of operating and a corrected bushfire plan. Second of three Firmus sites planned for northern Tasmania.",
-    community: "349 submissions and an e-petition of close to 6,000 signatures against. Councillors said their hands were tied by the planning scheme. A separate petition to state parliament seeking a moratorium on uncompleted AI facilities passed 9,000 signatures.",
+    community: "349 submissions and an e-petition of close to 6,000 signatures against. Councillors said their hands were tied by the planning scheme. A separate petition to state parliament seeking a moratorium on uncompleted AI facilities passed 9,000 signatures. Some residents are planning a legal appeal against the council decision.",
     sources: [
       { label: "ABC News, 25 Aug 2026", url: "https://www.abc.net.au/news/2026-08-25/firmus-ai-bell-bay-receives-george-town-council-approval/107074336" },
       { label: "Pulse Tasmania, Aug 2026", url: "https://pulsetasmania.com.au/news/george-town-council-approves-288-megawatt-ai-data-centre-at-bell-bay/" },
-      { label: "Canberra Times / AAP, Aug 2026", url: "https://www.canberratimes.com.au/story/9337393/ai-data-centre-approved-despite-community-concerns/" }
+      { label: "Canberra Times / AAP, Aug 2026", url: "https://www.canberratimes.com.au/story/9337393/ai-data-centre-approved-despite-community-concerns/" },
+      { label: "ABC News, 30 Aug 2026", url: "https://www.abc.net.au/news/2026-08-30/ai-data-centre-tasmania-firmus-technology-george-town/107089468" }
     ],
     confidence: "high",
-    updated: "2026-09-03"
+    updated: "2026-09-05"
   },
   {
     id: "firmus-launceston",
@@ -112,14 +113,15 @@ const PROJECTS = [
     status: "proposed",
     capacity_mw: 52,
     developer: "Firmus Technologies",
-    summary: "52 MW third site in Firmus's Project Southgate plan for Tasmania.",
-    community: "No specific opposition recorded yet.",
+    summary: "52 MW third site in Firmus's Project Southgate plan for Tasmania. A development application has been submitted. Latrobe Council is separately seeking to have the application declared a major project, which would require assessment by the state planning commission rather than the local council.",
+    community: "No formal opposition group recorded yet. Latrobe Council's push for major project status signals concern about the local planning process being adequate for a facility of this type.",
     sources: [
       { label: "Canberra Times / AAP, Aug 2026", url: "https://www.canberratimes.com.au/story/9337393/ai-data-centre-approved-despite-community-concerns/" },
-      { label: "The Urban Developer, Jun 2026", url: "https://www.theurbandeveloper.com/articles/firmus-technologies-ai-factory-bell-bay-gunns-pulp-mill-tasmania" }
+      { label: "The Urban Developer, Jun 2026", url: "https://www.theurbandeveloper.com/articles/firmus-technologies-ai-factory-bell-bay-gunns-pulp-mill-tasmania" },
+      { label: "ABC News, 30 Aug 2026", url: "https://www.abc.net.au/news/2026-08-30/ai-data-centre-tasmania-firmus-technology-george-town/107089468" }
     ],
     confidence: "medium",
-    updated: "2026-09-03"
+    updated: "2026-09-05"
   },
   {
     id: "goodman-project-mars",
@@ -196,5 +198,125 @@ const PROJECTS = [
     ],
     confidence: "medium",
     updated: "2026-09-03"
+  },
+  {
+    id: "airtrunk-mel2-mickleham",
+    name: "AirTrunk MEL2 Mickleham",
+    location: "45 Donnybrook Road, Mickleham, City of Hume",
+    state: "VIC",
+    lat: -37.553, lng: 144.900,
+    status: "proposed",
+    capacity_mw: 354,
+    developer: "AirTrunk (Blackstone-owned)",
+    summary: "Seven-building hyperscale campus on 67 hectares of former pastoral land, 45 km north of Melbourne's CBD. AirTrunk acquired the site from the McMullin family for approximately $350 million and lodged planning application PA2604506 with the Victorian Department of Transport and Planning on 1 July 2026 under the Development Facilitation Program. Over 354 MW capacity across seven parcels. Requires a planning scheme amendment to permit a utility installation on land currently zoned farming. Would lift AirTrunk's total Melbourne deployable capacity to over 630 MW and total Australian capacity to over 1.2 GW across five campuses.",
+    community: "No formal community opposition recorded at time of writing. The site is immediately east of the Mickleham Animal and Human Quarantine facilities. Application is still being assessed by the Department of Transport and Planning.",
+    sources: [
+      { label: "AirTrunk press release, Jan 2026", url: "https://airtrunk.com/airtrunk-expands-australian-platform-with-a-second-hyperscale-data-centre-campus-in-melbourne/" },
+      { label: "The Urban Developer, Jul 2026", url: "https://www.theurbandeveloper.com/articles/airtrunk-blackstone-mickleham-north-melbourne-data-centre-plans-donnybrook-road" },
+      { label: "Planning Victoria permit register, PA2604506", url: "https://www.planning.vic.gov.au/planning-approvals/ministerial-permits-register/ministerial-permits/fb678cb2-1784-4883-932a-4fdca25a480a" },
+      { label: "realestatesource, Jul 2026", url: "https://www.realestatesource.com.au/data-centre-giant-buys-350m-melbourne-site/" }
+    ],
+    confidence: "high",
+    updated: "2026-09-05"
+  },
+  {
+    id: "cloud-carrier-moss-vale",
+    name: "Southern Highlands Data Campus (Cloud Carrier)",
+    location: "30 Douglas Road, Moss Vale, Wingecarribee Shire",
+    state: "NSW",
+    lat: -34.553, lng: 150.405,
+    status: "contested",
+    capacity_mw: 673,
+    developer: "Cloud Carrier / Nakar Property / Square Energy",
+    summary: "A data centre campus with an operating small facility and two more planned, to be powered by 21 gas generation halls with combined capacity of up to 703 MW — among the three largest reciprocating gas engine power stations proposed anywhere on Earth. The 67-hectare site is less than 5 km from Moss Vale's town centre and 500 m from the nearest homes. Exhaust stacks would reach 23.5 m. State Significant Development SSD-102795459 before the NSW Planning Portal. A smaller 16 MW gas plant component is currently before the NSW Land and Environment Court after a council deemed refusal. The broader 673 MW SSD was lodged after the smaller proposal attracted sustained opposition.",
+    community: "Strong and growing local opposition. Around 400 people packed Moss Vale Services Club on 9 August 2026 for a public forum organised by Stop the Gas Plant: Southern Highlands. Federal Member for Whitlam Carol Berry said she had not spoken to a single supporter of the project. NSW Greens Senator David Shoebridge and Wingecarribee Shire Councillor Heather Champion were among speakers. The Australian Conservation Foundation has an investigator active on the case. Wingecarribee Council previously stopped a coal mine on the same site in 2021.",
+    sources: [
+      { label: "ABC News, 26 May 2026", url: "https://www.abc.net.au/news/2026-05-26/moss-vale-locals-oppose-plans-gas-powered-data-centres/106718446" },
+      { label: "RenewEconomy, 20 May 2026", url: "https://reneweconomy.com.au/protests-called-as-data-centre-developer-super-sizes-plans-for-fossil-gas-generation-in-southern-highlands/" },
+      { label: "Southern Highland News, Aug 2026", url: "https://www.southernhighlandnews.com.au/story/9331709/nsw-state-government-unveils-data-centre-cost-recovery-policy/" },
+      { label: "Wingecarribee Council project page", url: "https://www.wsc.nsw.gov.au/Plan-and-Build/Community-Interest-Items/Southern-Highlands-Data-Campus-Power-Station-Proposal" },
+      { label: "NSW Planning Portal, SSD-102795459", url: "https://www.planningportal.nsw.gov.au/major-projects/projects/southern-highland-data-campus-power-station" }
+    ],
+    confidence: "high",
+    updated: "2026-09-05"
+  },
+  {
+    id: "nextdc-m3-west-footscray",
+    name: "NEXTDC M3 Expansion, West Footscray",
+    location: "1 Paramount Road, West Footscray, City of Maribyrnong",
+    state: "VIC",
+    lat: -37.801, lng: 144.876,
+    status: "building",
+    capacity_mw: 133,
+    developer: "NEXTDC",
+    summary: "Expansion of the existing NEXTDC M3 data centre campus, growing from the current 225 MW to approximately 358 MW across the Paramount Road and Indwe Street addresses. Ministerial permit PA2604231 was approved by the Victorian Planning Minister under the Development Facilitation Program. The existing M3 facility, originally approved by Maribyrnong City Council in 2021 at 13.5 MW, has expanded incrementally to 225 MW — seventeen times the originally approved capacity — with 40 confirmed diesel generators on site. The approved expansion would bring generators to more than 100 and cover 10 hectares in a residential neighbourhood. Residents have no right of appeal to VCAT against ministerial decisions.",
+    community: "Intense resident opposition. Citizens of Tottenham produced a 37,289-word submission in 31 days despite no formal right of objection under the ministerial fast-track process. The expansion application opened for public notice with only 14 days for submissions, much of it falling across Easter. Hundreds of residents protested on 9 August alongside the adjacent Perri Melbourne Data Centre site. Residents report childhood asthma rates more than 50% above the state average in the local government area. Residents describe the facility as 'Mordor'. The Age and Herald Sun both covered the story in March–April 2026.",
+    sources: [
+      { label: "The Westsider, Jun 2026", url: "https://thewestsider.com.au/how-west-footscray-residents-were-hoodwinked-and-ended-up-in-a-living-nightmare/" },
+      { label: "ABC News, Jun 2026", url: "https://www.abc.net.au/news/2026-06-09/firefighter-concern-over-data-centres-in-melbourne-west/106762858" },
+      { label: "Planning Victoria, PA2604231", url: "https://www.planning.vic.gov.au/planning-approvals/ministerial-permits-register/ministerial-permits/ef7039bf-cd0b-f111-8407-7c1e5262e60a" },
+      { label: "Green Left, Aug 2026", url: "https://www.greenleft.org.au/2026/1460/news/protesters-call-moratorium-data-centre-construction" },
+      { label: "Change.org petition, Citizens of Tottenham", url: "https://www.change.org/p/object-the-expansion-of-nextdc-data-centre-in-west-footscray" }
+    ],
+    confidence: "high",
+    updated: "2026-09-05"
+  },
+  {
+    id: "perri-melbourne-dc",
+    name: "Perri Melbourne Data Centre, West Footscray",
+    location: "1 McArthur Street / 63 Sunshine Road, West Footscray, City of Maribyrnong",
+    state: "VIC",
+    lat: -37.803, lng: 144.874,
+    status: "approved",
+    capacity_mw: null,
+    developer: "Perri Projects (Central Godown Pty Ltd / Albert Kennedy Pty Ltd)",
+    summary: "Four-storey data centre on 2.72 hectares adjacent to the heritage-listed Goldsbrough Mort woolstore building, approved through Victoria's Development Facilitation Program. Located 10 metres from residential dwellings. Sits in the same West Footscray/Tottenham precinct as NEXTDC M3, roughly 300 m away. WorkSafe Victoria lodged concerns in December 2024 about proximity to housing, then amended its position to a conditional approval requiring Fire Rescue Victoria consultation and a fire safety study — advice FRV members described to the ABC as unenforceable.",
+    community: "Hundreds of residents protested on 9 August 2026 alongside the NEXTDC M3 site, organised by Borderlands Cooperative and Citizens of Tottenham. SBS reported on 1 September 2026 that a local resident described the community as having been 'sold down the river'. Residents emphasise the cumulative effect of two large data centre facilities on the same street in a neighbourhood of terrace houses and flats.",
+    sources: [
+      { label: "DCD, Jul 2026", url: "https://www.datacenterdynamics.com/en/news/data-center-planned-for-former-woolstore-in-west-melbourne-australia/" },
+      { label: "ABC News, Jun 2026", url: "https://www.abc.net.au/news/2026-06-09/firefighter-concern-over-data-centres-in-melbourne-west/106762858" },
+      { label: "SBS News, Sep 2026", url: "https://www.sbs.com.au/news/article/data-centre-rules-homes-schools-existing-residents/g0u6j2i43" }
+    ],
+    confidence: "medium",
+    updated: "2026-09-05"
+  },
+  {
+    id: "zerra-western-downs-qld",
+    name: "Western Downs Digital Park (Zerra DC)",
+    location: "1933 Dalby-Kogan Road, near Kogan, Western Downs Region",
+    state: "QLD",
+    lat: -27.000, lng: 150.650,
+    status: "proposed",
+    capacity_mw: 1440,
+    developer: "Zerra DC (Singapore, subsidiary of AGP Sustainable Real Assets)",
+    summary: "Four-phase data centre campus totalling 1.44 GW on 725.5 hectares of cattle grazing land 37 km north-west of Dalby and approximately 250 km north-west of Brisbane, estimated build cost $31.9 billion. Development application lodged with Western Downs Regional Council by project company WDDP Pty Ltd in August 2026. Each of the four 360 MW buildings would be 36,000 sqm. The site neighbours the 24,000-head Wambo Cattle Company feedlot, close to the Braemar and Darling Downs energy infrastructure corridor. Phase 1 includes a 540 MVA substation and battery-backed power conditioning system. Zerra proposes 100% air cooling with rainwater harvesting. Same developer as the contested Campbellfield (Project Dune) campus in Victoria.",
+    community: "Western Downs mayor Andrew Smith flagged community concerns about water, power and the agricultural character of the site as the project entered consultation: 'those questions around water are very real and the applicant will need to deal with those.' Application is at early DA stage; no formal opposition group identified yet, but regional community consultation is opening.",
+    sources: [
+      { label: "ABC News, 24 Aug 2026", url: "https://www.abc.net.au/news/2026-08-24/plans-for-australia-largest-data-centre-in-regional-queensland/107071624" },
+      { label: "DCD, Aug 2026", url: "https://www.datacenterdynamics.com/en/news/zerra-dc-files-plans-for-large-data-center-campus-in-queensland-australia/" },
+      { label: "The Urban Developer, Sep 2026", url: "https://www.theurbandeveloper.com/articles/zerra-dc-data-centre-dalby-queensland" },
+      { label: "Mingtiandi, Aug 2026", url: "https://www.mingtiandi.com/real-estate/data-centres/agps-zerra-files-plan-for-10-4b-queensland-data-centre-campus/" }
+    ],
+    confidence: "high",
+    updated: "2026-09-05"
+  },
+  {
+    id: "iren-bundey-sa",
+    name: "IREN Bundey Data Centre Campus",
+    location: "Near Bundey, Mid North SA (approx. 125 km north-east of Adelaide)",
+    state: "SA",
+    lat: -33.890, lng: 139.300,
+    status: "proposed",
+    capacity_mw: 800,
+    developer: "IREN Limited (NASDAQ: IREN, formerly Iris Energy)",
+    summary: "IREN's first announced Australian data centre campus: 800 MW near Bundey, South Australia, with energisation expected from 2028. A transmission connection agreement signed on 3 June 2026 secures four 330 kV feeder exits at the utility substation — sufficient for up to 800 MW without network upgrades and estimated investment of approximately $10 billion. The site sits within ElectraNet's proposed Northern Transmission Project (NTx) corridor. No development application has been lodged yet. IREN is pivoting from cryptocurrency mining to AI cloud infrastructure.",
+    community: "No community opposition recorded at time of writing. The project has the public backing of SA Premier Peter Malinauskas. Community consultation would follow any DA lodgement.",
+    sources: [
+      { label: "IREN Globe Newswire, 3 Jun 2026", url: "https://iren.gcs-web.com/news-releases/news-release-details/iren-announces-first-australian-data-center-campus-800mw-south" },
+      { label: "DCD, Jun 2026", url: "https://www.datacenterdynamics.com/en/news/iren-targets-australia-for-800mw-data-center-campus/" },
+      { label: "w.media, Jun 2026", url: "https://w.media/iren-targets-bundey-transmission-hub-for-800mw-australian-data-centre-campus/" }
+    ],
+    confidence: "high",
+    updated: "2026-09-05"
   }
 ];
